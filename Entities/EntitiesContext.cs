@@ -7,13 +7,9 @@ namespace Entities
 {
     public class EntitiesContext : DbContext
     {
-        public  EntitiesContext(DbContextOptions options) : base(options)
-        {
-
-        }
-
-        public EntitiesContext()
-        {
+        
+        public EntitiesContext(DbContextOptions<EntitiesContext> options): base(options)
+        { 
 
         }
 

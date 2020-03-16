@@ -29,7 +29,8 @@
           "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\DevExpress 19.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/RYOz3QKdvX6jqm7RuMiQSJfasLxyu4KPexyUzKu3XYdBUU9iMV/api": {}
         },
         "frameworks": {
           "netcoreapp3.1": {

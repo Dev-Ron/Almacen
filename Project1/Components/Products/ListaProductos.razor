@@ -1,0 +1,12 @@
+﻿@using DevExpress.Blazor
+@using Entities
+@using Bussiness
+@page "/Productos"
+
+<DxDataGrid Data="@products">
+
+</DxDataGrid>
+
+@code {
+    List<ProductEntity> products = B_Product.ProductList();
+}

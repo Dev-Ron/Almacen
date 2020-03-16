@@ -33,6 +33,14 @@ namespace Project1
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+
+            var optionsBuilder = new DbContextOptionsBuilder<EntitiesContext>();
+            optionsBuilder.UseSqlServer(connectionString);
+
+            using (var context = new EntitiesContext(optionsBuilder.Options))
+            {
+                // do stuff
+            }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

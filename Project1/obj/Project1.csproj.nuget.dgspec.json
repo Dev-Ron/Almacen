@@ -29,7 +29,8 @@
           "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\DevExpress 19.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/RYOz3QKdvX6jqm7RuMiQSJfasLxyu4KPexyUzKu3XYdBUU9iMV/api": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -92,7 +93,8 @@
           "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\DevExpress 19.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/RYOz3QKdvX6jqm7RuMiQSJfasLxyu4KPexyUzKu3XYdBUU9iMV/api": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -167,7 +169,8 @@
           "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\DevExpress 19.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/RYOz3QKdvX6jqm7RuMiQSJfasLxyu4KPexyUzKu3XYdBUU9iMV/api": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -190,6 +193,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "DevExpress.Blazor": {
+              "target": "Package",
+              "version": "[19.2.4, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.2, )"

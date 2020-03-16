@@ -1,11 +1,11 @@
-C:\Users\Usuario\OneDrive\Portafolio\Project1\Bussiness\obj\Debug\netcoreapp3.1\Bussiness.csprojAssemblyReference.cache
-C:\Users\Usuario\OneDrive\Portafolio\Project1\Bussiness\obj\Debug\netcoreapp3.1\Bussiness.AssemblyInfoInputs.cache
-C:\Users\Usuario\OneDrive\Portafolio\Project1\Bussiness\obj\Debug\netcoreapp3.1\Bussiness.AssemblyInfo.cs
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Bussiness\bin\Debug\netcoreapp3.1\Bussiness.deps.json
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Bussiness\bin\Debug\netcoreapp3.1\Bussiness.dll
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Bussiness\bin\Debug\netcoreapp3.1\Bussiness.pdb
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Bussiness\bin\Debug\netcoreapp3.1\Entities.dll
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Bussiness\bin\Debug\netcoreapp3.1\Entities.pdb
+C:\Users\Usuario\OneDrive\Portafolio\Project1\Bussiness\obj\Debug\netcoreapp3.1\Bussiness.csprojAssemblyReference.cache
+C:\Users\Usuario\OneDrive\Portafolio\Project1\Bussiness\obj\Debug\netcoreapp3.1\Bussiness.AssemblyInfoInputs.cache
+C:\Users\Usuario\OneDrive\Portafolio\Project1\Bussiness\obj\Debug\netcoreapp3.1\Bussiness.AssemblyInfo.cs
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Bussiness\obj\Debug\netcoreapp3.1\Bussiness.csproj.CopyComplete
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Bussiness\obj\Debug\netcoreapp3.1\Bussiness.dll
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Bussiness\obj\Debug\netcoreapp3.1\Bussiness.pdb
