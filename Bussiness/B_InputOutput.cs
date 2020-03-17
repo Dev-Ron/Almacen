@@ -8,37 +8,30 @@ namespace Bussiness
 {
     public class B_InputOutput
     {
-        public List<InputOutputEntity> InputOutputList()
+        private EntitiesContext _Context;
+
+        public static List<InputOutputEntity> OutputList()
         {
             using (var db = new EntitiesContext())
             {
-                return db.InputOutputs.ToList();
+                return db.InOuts.ToList();
             }
         }
 
-        public void CreateInputOutput(InputOutputEntity inputOutput)
+        public static void CreateOutput(InputOutputEntity oOutput)
         {
             using (var db = new EntitiesContext())
             {
-                db.Add(inputOutput);
+                db.InOuts.Add(oOutput);
                 db.SaveChanges();
             }
         }
 
-        public void DeleteInputOutput(InputOutputEntity inputOutput)
+        public static void UpdateOutput(InputOutputEntity oOutput)
         {
             using (var db = new EntitiesContext())
             {
-                db.Remove(inputOutput);
-                db.SaveChanges();
-            }
-        }
-
-        public void UpdateInputOutput(InputOutputEntity inputOutput)
-        {
-            using (var db = new EntitiesContext())
-            {
-                db.Update(inputOutput);
+                db.InOuts.Update(oOutput);
                 db.SaveChanges();
             }
         }

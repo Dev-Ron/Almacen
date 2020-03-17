@@ -8,7 +8,9 @@ namespace Bussiness
 {
     public class B_WhereHouse
     {
-        public List<WhereHouseEntity> WhereHouseList()
+        private EntitiesContext _Context;
+
+        public static List<WhereHouseEntity> WherehouseList()
         {
             using (var db = new EntitiesContext())
             {
@@ -16,29 +18,20 @@ namespace Bussiness
             }
         }
 
-        public void CreateWhereHouse(WhereHouseEntity whereHouse)
+        public static void CreateWherehouse(WhereHouseEntity oWarehouse)
         {
             using (var db = new EntitiesContext())
             {
-                db.Add(whereHouse);
+                db.WhereHouses.Add(oWarehouse);
                 db.SaveChanges();
             }
         }
 
-        public void DeleteWhereHouse(WhereHouseEntity whereHouse)
+        public static void UpdateWherehouse(WhereHouseEntity oWarehouse)
         {
             using (var db = new EntitiesContext())
             {
-                db.Remove(whereHouse);
-                db.SaveChanges();
-            }
-        }
-
-        public void UpdateWhereHouse(WhereHouseEntity whereHouse)
-        {
-            using (var db = new EntitiesContext())
-            {
-                db.Update(whereHouse);
+                db.WhereHouses.Update(oWarehouse);
                 db.SaveChanges();
             }
         }

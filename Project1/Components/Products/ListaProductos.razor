@@ -1,12 +1,46 @@
-﻿@using DevExpress.Blazor
-@using Entities
+﻿@using Entities
 @using Bussiness
-@page "/Productos"
+@using DevExpress.Blazor
 
-<DxDataGrid Data="@products">
+    <DevExpress.Blazor.DxDataGrid T="@CategoryEntity" Data="@categories">
+        <DevExpress.Blazor.DxDataGridColumn Caption="Nombre" Field="@nameof(CategoryEntity.Name)"> </DevExpress.Blazor.DxDataGridColumn>
+        <DevExpress.Blazor.DxDataGridColumn Caption="Fecha de Modificación" Field="@nameof(CategoryEntity.ModificationDate)"> </DevExpress.Blazor.DxDataGridColumn>
+    </DevExpress.Blazor.DxDataGrid>
 
-</DxDataGrid>
+
+    <DevExpress.Blazor.DxDataGrid T="@CategoryEntity" Data="@categories"
+        PageSize="5"
+        ShowFilterRow="false"
+        style="width:70%">
+        <DxDataGridCommandColumn Width="150px" />
+        <DxDataGridDateEditColumn Field="@nameof(CategoryEntity.ModificationDate)" DisplayFormatString="D" EditFormatString="D" />
+    </DevExpress.Blazor.DxDataGrid>
 
 @code {
-    List<ProductEntity> products = B_Product.ProductList();
+    List<ProductEntity> products = new List<ProductEntity>();
+    List<ProductEntity> tempProducts = new List<ProductEntity>();
+    List<CategoryEntity> categories = new List<CategoryEntity>();
+
+    string message;
+
+    protected override async Task OnInitializedAsync()
+    {
+        products = B_Product.ProductList();
+        tempProducts = products;
+        categories = B_Category.CategoryList();
+    }
+
+    private void CategoryChanged(ChangeEventArgs e)
+    {
+        var id = e.Value.ToString();
+
+        if (id != "n")
+        {
+            tempProducts = products.Where(c => c.CategoryEntity.Name == id).ToList();
+        }
+        else
+        {
+            tempProducts = products;
+        }
+    }
 }

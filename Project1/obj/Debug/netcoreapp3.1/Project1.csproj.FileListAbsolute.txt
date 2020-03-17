@@ -52,16 +52,18 @@ C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\bin\Debug\netcoreapp3.1\r
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\bin\Debug\netcoreapp3.1\Bussiness.dll
+C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\bin\Debug\netcoreapp3.1\DataAccess.dll
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\bin\Debug\netcoreapp3.1\Entities.dll
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\bin\Debug\netcoreapp3.1\Bussiness.pdb
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\bin\Debug\netcoreapp3.1\Entities.pdb
+C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\bin\Debug\netcoreapp3.1\DataAccess.pdb
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\Project1.csprojAssemblyReference.cache
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\staticwebassets\Project1.StaticWebAssets.Manifest.cache
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\staticwebassets\Project1.StaticWebAssets.xml
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\Project1.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\Project1.RazorComponent.input.cache
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\RazorDeclaration\App.razor.g.cs
-C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\RazorDeclaration\Components\Products\CreateProducts.razor.g.cs
+C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\RazorDeclaration\Components\Products\ListaProductos.razor.g.cs
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Counter.razor.g.cs
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Error.razor.g.cs
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\FetchData.razor.g.cs
@@ -74,7 +76,7 @@ C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\P
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\Project1.TagHelpers.output.cache
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\Project1.RazorCoreGenerate.cache
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\Razor\App.razor.g.cs
-C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\Razor\Components\Products\CreateProducts.razor.g.cs
+C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\Razor\Components\Products\ListaProductos.razor.g.cs
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\Razor\Pages\Counter.razor.g.cs
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\Razor\Pages\Error.razor.g.cs
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\Razor\Pages\FetchData.razor.g.cs
@@ -93,5 +95,3 @@ C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\P
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\Project1.csproj.CopyComplete
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\Project1.dll
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\Project1.pdb
-C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\RazorDeclaration\Components\Products\ListaProductos.razor.g.cs
-C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\obj\Debug\netcoreapp3.1\Razor\Components\Products\ListaProductos.razor.g.cs
