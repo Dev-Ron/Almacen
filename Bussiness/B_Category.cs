@@ -26,6 +26,15 @@ namespace Bussiness
             }
         }
 
+        public static void DeleteCategory(CategoryEntity oCategory)
+        {
+            using (var db = new EntitiesContext())
+            {
+                db.Categories.Remove(oCategory);
+                db.SaveChanges();
+            }
+        }
+
         public static void UpdateCategory(CategoryEntity oCategory)
         {
             using (var db = new EntitiesContext())

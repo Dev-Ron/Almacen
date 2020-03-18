@@ -1,46 +1,48 @@
 ﻿@using Entities
 @using Bussiness
 @using DevExpress.Blazor
+@using Newtonsoft.Json
 
-    <DevExpress.Blazor.DxDataGrid T="@CategoryEntity" Data="@categories">
-        <DevExpress.Blazor.DxDataGridColumn Caption="Nombre" Field="@nameof(CategoryEntity.Name)"> </DevExpress.Blazor.DxDataGridColumn>
-        <DevExpress.Blazor.DxDataGridColumn Caption="Fecha de Modificación" Field="@nameof(CategoryEntity.ModificationDate)"> </DevExpress.Blazor.DxDataGridColumn>
-    </DevExpress.Blazor.DxDataGrid>
+    <DxDataGrid T="@CategoryEntity" Data="@categories" ShowFilterRow=true @ref="DataGridProducts"
+
+                RowUpdating=@((row, newValues) => OnRowUpdating(row as CategoryEntity, newValues))
+                RowInserting=@((row) => OnRowInserting(row))
+                RowRemoving="@((row) => Delete(row as CategoryEntity))">
+                
+        <DxDataGridCommandColumn Width="20%"></DxDataGridCommandColumn>
+        <DxDataGridColumn Caption="Nombre" Field="@nameof(CategoryEntity.Name)"> </DxDataGridColumn>
+    </DxDataGrid>
 
 
-    <DevExpress.Blazor.DxDataGrid T="@CategoryEntity" Data="@categories"
-        PageSize="5"
-        ShowFilterRow="false"
-        style="width:70%">
-        <DxDataGridCommandColumn Width="150px" />
-        <DxDataGridDateEditColumn Field="@nameof(CategoryEntity.ModificationDate)" DisplayFormatString="D" EditFormatString="D" />
-    </DevExpress.Blazor.DxDataGrid>
 
 @code {
-    List<ProductEntity> products = new List<ProductEntity>();
-    List<ProductEntity> tempProducts = new List<ProductEntity>();
     List<CategoryEntity> categories = new List<CategoryEntity>();
-
-    string message;
-
+    DxDataGrid<CategoryEntity> DataGridProducts;
     protected override async Task OnInitializedAsync()
     {
-        products = B_Product.ProductList();
-        tempProducts = products;
         categories = B_Category.CategoryList();
     }
 
-    private void CategoryChanged(ChangeEventArgs e)
-    {
-        var id = e.Value.ToString();
+    async void OnRowUpdating(CategoryEntity dataItem, Dictionary<string, object> newValue) {
+        string values = JsonConvert.SerializeObject(newValue);
+        JsonConvert.PopulateObject(values, dataItem);
+        B_Category.UpdateCategory(dataItem);
+    }
 
-        if (id != "n")
-        {
-            tempProducts = products.Where(c => c.CategoryEntity.Name == id).ToList();
-        }
-        else
-        {
-            tempProducts = products;
+
+    async void OnRowInserting(Dictionary<string, object> newValue) {
+        CategoryEntity categoryEntitynew = new CategoryEntity();
+
+        string values = JsonConvert.SerializeObject(newValue);
+        JsonConvert.PopulateObject(values, categoryEntitynew);
+        B_Category.CreateCategory(categoryEntitynew);
+        
+    }
+
+
+    async void Delete(CategoryEntity item) {
+        if (item != null) {
+            B_Category.DeleteCategory(item);
         }
     }
 }
