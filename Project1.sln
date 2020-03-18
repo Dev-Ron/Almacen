@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project1", "Project1\Projec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{8CF22715-028D-4E90-A3DB-16A23F7F7B43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bussiness", "Bussiness\Bussiness.csproj", "{DE40D0FE-34E8-4A2A-B5DC-274685DCFB78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bussiness", "Bussiness\Bussiness.csproj", "{DE40D0FE-34E8-4A2A-B5DC-274685DCFB78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{AC12D56B-55C4-4A3F-945F-5492E4D7CB85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{DE40D0FE-34E8-4A2A-B5DC-274685DCFB78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE40D0FE-34E8-4A2A-B5DC-274685DCFB78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE40D0FE-34E8-4A2A-B5DC-274685DCFB78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC12D56B-55C4-4A3F-945F-5492E4D7CB85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC12D56B-55C4-4A3F-945F-5492E4D7CB85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC12D56B-55C4-4A3F-945F-5492E4D7CB85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC12D56B-55C4-4A3F-945F-5492E4D7CB85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

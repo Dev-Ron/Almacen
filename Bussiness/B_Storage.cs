@@ -1,4 +1,5 @@
 ﻿using Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,37 +9,75 @@ namespace Bussiness
 {
     public class B_Storage
     {
-        public List<StorageEntity> StorageList()
+        private EntitiesContext _Context;
+
+        public static List<StorageEntity> StorageList()
         {
             using (var db = new EntitiesContext())
             {
-                return db.Storages.ToList();
+                return db.Storages
+                    .Include(s => s.Product)
+                    .Include(s => s.WhereHouse)
+                    .ToList();
             }
         }
 
-        public void CreateStorage(StorageEntity storage)
+        public static StorageEntity CreateStorage(StorageEntity oStorage)
         {
             using (var db = new EntitiesContext())
             {
-                db.Add(storage);
+                db.Storages.Add(oStorage);
                 db.SaveChanges();
+
+                return GetStorageById(oStorage.Id);
             }
         }
 
-        public void DeleteStorage(StorageEntity storage)
+        /* NUEVO MÉTODO */
+        public static StorageEntity GetStorageById(int id)
         {
             using (var db = new EntitiesContext())
             {
-                db.Remove(storage);
-                db.SaveChanges();
+                return db.Storages
+                    .Include(s => s.Product)
+                    .Include(s => s.WhereHouse)
+                    .ToList()
+                    .LastOrDefault(s => s.Id == id);
             }
         }
 
-        public void UpdateStorage(StorageEntity storage)
+        /* NUEVO MÉTODO */
+        public static bool IsProductInWarehouse(int id)
         {
             using (var db = new EntitiesContext())
             {
-                db.Update(storage);
+                var product = db.Storages.ToList()
+                    .Where(p => p.Id == id);
+
+                return product.Any();
+            }
+        }
+
+        /* NUEVO MÉTODO */
+        public static List<StorageEntity> StorageListByWarehouse(string idWarehouse)
+        {
+            using (var db = new EntitiesContext())
+            {
+                return db.Storages
+                    .Include(s => s.Product)
+                    .Include(s => s.WhereHouse)
+                    .Where(s => s.WhereHouse.Name == idWarehouse)
+                    .ToList();
+            }
+        }
+
+        public static void UpdateStorage(StorageEntity oStorage)
+        {
+            oStorage.LasUpdate = DateTime.Now;
+
+            using (var db = new EntitiesContext())
+            {
+                db.Storages.Update(oStorage);
                 db.SaveChanges();
             }
         }

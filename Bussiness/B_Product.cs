@@ -8,7 +8,7 @@ namespace Bussiness
 {
     public class B_Product
     {
-        public List<ProductEntity> ProductList()
+        public static List<ProductEntity> ProductList()
         {
             using (var db = new EntitiesContext())
             {
@@ -16,29 +16,20 @@ namespace Bussiness
             }
         }
 
-        public void CreateProduct(ProductEntity product)
+        public static void CreateProduct(ProductEntity oProduct)
         {
             using (var db = new EntitiesContext())
             {
-                db.Add(product);
+                db.Products.Add(oProduct);
                 db.SaveChanges();
             }
         }
 
-        public void DeleteProduct(ProductEntity product)
+        public static void UpdateProduct(ProductEntity oProduct)
         {
             using (var db = new EntitiesContext())
             {
-                db.Remove(product);
-                db.SaveChanges();
-            }
-        }
-
-        public void UpdateProduct(ProductEntity product)
-        {
-            using (var db = new EntitiesContext())
-            {
-                db.Update(product);
+                db.Products.Update(oProduct);
                 db.SaveChanges();
             }
         }

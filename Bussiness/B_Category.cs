@@ -8,7 +8,8 @@ namespace Bussiness
 {
     public class B_Category
     {
-        public List<CategoryEntity> CategoriesList()
+
+        public static List<CategoryEntity> CategoryList()
         {
             using (var db = new EntitiesContext())
             {
@@ -16,29 +17,29 @@ namespace Bussiness
             }
         }
 
-        public void CreateCategory(CategoryEntity category)
+        public static void CreateCategory(CategoryEntity oCategory)
         {
             using (var db = new EntitiesContext())
             {
-                db.Add(category);
+                db.Categories.Add(oCategory);
                 db.SaveChanges();
             }
         }
 
-        public void DeleteCategory(CategoryEntity category)
+        public static void DeleteCategory(CategoryEntity oCategory)
         {
             using (var db = new EntitiesContext())
             {
-                db.Remove(category);
+                db.Categories.Remove(oCategory);
                 db.SaveChanges();
             }
         }
 
-        public void UpdateCategory(CategoryEntity category)
+        public static void UpdateCategory(CategoryEntity oCategory)
         {
             using (var db = new EntitiesContext())
             {
-                db.Update(category);
+                db.Categories.Update(oCategory);
                 db.SaveChanges();
             }
         }

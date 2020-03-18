@@ -72,6 +72,13 @@ using Project1.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 10 "C:\Users\Usuario\OneDrive\Portafolio\Project1\Project1\_Imports.razor"
+using Project1.Components.Products;
+
+#line default
+#line hidden
+#nullable disable
     public partial class App : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
