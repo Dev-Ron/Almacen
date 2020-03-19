@@ -3,45 +3,49 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Bussiness
 {
     public class B_Category
     {
 
-        public static List<CategoryEntity> CategoryList()
+        public async Task<IEnumerable<CategoryEntity>> CategoryList(CancellationToken ct=default)
         {
             using (var db = new EntitiesContext())
             {
-                return db.Categories.ToList();
+                return await Task.FromResult(db.Categories.ToList());
             }
         }
 
-        public static void CreateCategory(CategoryEntity oCategory)
+        public Task CreateCategory(CategoryEntity oCategory)
         {
             using (var db = new EntitiesContext())
             {
                 db.Categories.Add(oCategory);
-                db.SaveChanges();
+                return Task.FromResult(db.SaveChanges());
             }
         }
 
-        public static void DeleteCategory(CategoryEntity oCategory)
+        public Task DeleteCategory(CategoryEntity oCategory)
         {
             using (var db = new EntitiesContext())
             {
                 db.Categories.Remove(oCategory);
-                db.SaveChanges();
+                return Task.FromResult(db.SaveChanges());
             }
         }
 
-        public static void UpdateCategory(CategoryEntity oCategory)
+        public Task UpdateCategory(CategoryEntity oCategory)
         {
             using (var db = new EntitiesContext())
             {
                 db.Categories.Update(oCategory);
-                db.SaveChanges();
+                return Task.FromResult(db.SaveChanges());
+                
             }
+            
         }
     }
 }
