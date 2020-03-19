@@ -2,12 +2,14 @@
 @using Bussiness
 @using DevExpress.Blazor
 @using Newtonsoft.Json
+@inject B_Category Category
 
-    <DxDataGrid T="@CategoryEntity" Data="@categories" ShowFilterRow=true @ref="DataGridProducts"
+    <DxDataGrid T="CategoryEntity" DataAsync="@Category.CategoryList" ShowFilterRow=true
 
                 RowUpdating=@((row, newValues) => OnRowUpdating(row as CategoryEntity, newValues))
                 RowInserting=@((row) => OnRowInserting(row))
-                RowRemoving="@((row) => Delete(row as CategoryEntity))">
+                RowRemoving="@((row) => Delete(row as CategoryEntity))"
+                >
                 
         <DxDataGridCommandColumn Width="20%"></DxDataGridCommandColumn>
         <DxDataGridColumn Caption="Nombre" Field="@nameof(CategoryEntity.Name)"> </DxDataGridColumn>
@@ -16,33 +18,29 @@
 
 
 @code {
-    List<CategoryEntity> categories = new List<CategoryEntity>();
-    DxDataGrid<CategoryEntity> DataGridProducts;
-    protected override async Task OnInitializedAsync()
-    {
-        categories = B_Category.CategoryList();
-    }
 
-    async void OnRowUpdating(CategoryEntity dataItem, Dictionary<string, object> newValue) {
+    async void OnRowUpdating(CategoryEntity dataItem, Dictionary<string, object> newValue)
+    {
         string values = JsonConvert.SerializeObject(newValue);
         JsonConvert.PopulateObject(values, dataItem);
-        B_Category.UpdateCategory(dataItem);
+        await Category.UpdateCategory(dataItem);
     }
 
 
-    async void OnRowInserting(Dictionary<string, object> newValue) {
+    async void OnRowInserting(Dictionary<string, object> newValue)
+    {
         CategoryEntity categoryEntitynew = new CategoryEntity();
-
         string values = JsonConvert.SerializeObject(newValue);
         JsonConvert.PopulateObject(values, categoryEntitynew);
-        B_Category.CreateCategory(categoryEntitynew);
-        
+        await Category.CreateCategory(categoryEntitynew);
     }
 
 
-    async void Delete(CategoryEntity item) {
-        if (item != null) {
-            B_Category.DeleteCategory(item);
+    async void Delete(CategoryEntity item)
+    {
+        if (item != null)
+        {
+            await Category.DeleteCategory(item);
         }
     }
 }
