@@ -2,6 +2,113 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "DevExpress.Blazor/19.2.4": {
+        "type": "package",
+        "dependencies": {
+          "DevExtreme.AspNet.Data": "2.5.1",
+          "Microsoft.AspNetCore.Components": "3.1.2",
+          "Microsoft.AspNetCore.Components.Web": "3.1.2"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/DevExpress.Blazor.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/DevExpress.Blazor.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ],
+        "build": {
+          "buildTransitive/netcoreapp3.1/DevExpress.Blazor.props": {},
+          "buildTransitive/netcoreapp3.1/DevExpress.Blazor.targets": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/DevExpress.Blazor.props": {}
+        }
+      },
+      "DevExtreme.AspNet.Data/2.5.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.4.0",
+          "Newtonsoft.Json": "11.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/DevExtreme.AspNet.Data.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/DevExtreme.AspNet.Data.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authorization/3.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Metadata": "3.1.2",
+          "Microsoft.Extensions.Logging.Abstractions": "3.1.2",
+          "Microsoft.Extensions.Options": "3.1.2"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authorization.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authorization.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components/3.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "3.1.2",
+          "Microsoft.AspNetCore.Components.Analyzers": "3.1.2",
+          "Microsoft.JSInterop": "3.1.2"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.Analyzers/3.1.2": {
+        "type": "package",
+        "build": {
+          "build/netstandard2.0/_._": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.Forms/3.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.2"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Forms.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.Web/3.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.2",
+          "Microsoft.AspNetCore.Components.Forms": "3.1.2",
+          "Microsoft.Extensions.DependencyInjection": "3.1.2",
+          "Microsoft.JSInterop": "3.1.2"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Web.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Web.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Metadata/3.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Metadata.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Metadata.dll": {}
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
         "type": "package",
         "compile": {
@@ -298,6 +405,15 @@
           "lib/netcoreapp2.1/Microsoft.Identity.Client.dll": {}
         }
       },
+      "Microsoft.JSInterop/3.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.JSInterop.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.JSInterop.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/2.0.0": {
         "type": "package",
         "compile": {
@@ -337,6 +453,15 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "Newtonsoft.Json/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.native.System/4.3.0": {
@@ -1285,6 +1410,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "DevExpress.Blazor": "19.2.4",
           "Microsoft.EntityFrameworkCore": "3.1.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.2"
         },
@@ -1293,11 +1419,202 @@
         },
         "runtime": {
           "bin/placeholder/Entities.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
   "libraries": {
+    "DevExpress.Blazor/19.2.4": {
+      "sha512": "gXEGGl0cPWgmO5NOrcVVJ/fhMu3WxLijZgqabBuo5yDF/eIG/lDqg73nZwFkBTsJF1qp+rqyk4CQG0DmFogohw==",
+      "type": "package",
+      "path": "devexpress.blazor/19.2.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/DevExpress.Blazor.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/DevExpress.Blazor.props",
+        "buildTransitive/DevExpress.Blazor.props",
+        "buildTransitive/netcoreapp3.1/DevExpress.Blazor.props",
+        "buildTransitive/netcoreapp3.1/DevExpress.Blazor.targets",
+        "devexpress.blazor.19.2.4.nupkg.sha512",
+        "devexpress.blazor.nuspec",
+        "icon.png",
+        "lib/netcoreapp3.1/DevExpress.Blazor.dll",
+        "lib/netcoreapp3.1/DevExpress.Blazor.xml",
+        "lib/netstandard2.1/DevExpress.Blazor.dll",
+        "lib/netstandard2.1/DevExpress.Blazor.xml",
+        "license.txt",
+        "staticwebassets/cjs8498ed95.js",
+        "staticwebassets/dx-blazor.css",
+        "staticwebassets/dx-blazor.js",
+        "staticwebassets/esm34ee4b34.js",
+        "staticwebassets/modules/cjs-calendar-b7b92cc2.js",
+        "staticwebassets/modules/cjs-charts-b7d5bdf4.js",
+        "staticwebassets/modules/cjs-checkbox-f09a744f.js",
+        "staticwebassets/modules/cjs-chunk-85e9b555.js",
+        "staticwebassets/modules/cjs-chunk-98cdd37b.js",
+        "staticwebassets/modules/cjs-chunk-9eab2df8.js",
+        "staticwebassets/modules/cjs-chunk-d6ceb400.js",
+        "staticwebassets/modules/cjs-chunk-e26655d2.js",
+        "staticwebassets/modules/cjs-chunk-ea895bfc.js",
+        "staticwebassets/modules/cjs-chunk-f4c68e62.js",
+        "staticwebassets/modules/cjs-chunk-f8581dee.js",
+        "staticwebassets/modules/cjs-combobox-292ccc6e.js",
+        "staticwebassets/modules/cjs-devexpress.viz-7df80a2d.js",
+        "staticwebassets/modules/cjs-dom-utils-9e3f000c.js",
+        "staticwebassets/modules/cjs-dropdowns-e7ee1fb5.js",
+        "staticwebassets/modules/cjs-dx-blazor-8498ed95.js",
+        "staticwebassets/modules/cjs-form-layout-956a36e3.js",
+        "staticwebassets/modules/cjs-grid-905d74a1.js",
+        "staticwebassets/modules/cjs-popup-e1f3fea1.js",
+        "staticwebassets/modules/cjs-popup-utils-5b685664.js",
+        "staticwebassets/modules/cjs-roller-edc17ba0.js",
+        "staticwebassets/modules/cjs-scheduler-f88ef244.js",
+        "staticwebassets/modules/cjs-tagbox-8e21f9fa.js",
+        "staticwebassets/modules/cjs-upload-be46e867.js",
+        "staticwebassets/modules/esm-calendar-b0b429f5.js",
+        "staticwebassets/modules/esm-charts-aeab3c73.js",
+        "staticwebassets/modules/esm-checkbox-cd60c042.js",
+        "staticwebassets/modules/esm-chunk-38c61c5f.js",
+        "staticwebassets/modules/esm-chunk-511b3c8e.js",
+        "staticwebassets/modules/esm-chunk-6d4715b2.js",
+        "staticwebassets/modules/esm-chunk-94dee8b1.js",
+        "staticwebassets/modules/esm-chunk-95f069f9.js",
+        "staticwebassets/modules/esm-chunk-e0d053f7.js",
+        "staticwebassets/modules/esm-chunk-eaca7b99.js",
+        "staticwebassets/modules/esm-chunk-f7983851.js",
+        "staticwebassets/modules/esm-combobox-aef7cc5a.js",
+        "staticwebassets/modules/esm-devexpress.viz-5d8db4bd.js",
+        "staticwebassets/modules/esm-dom-utils-57c82d80.js",
+        "staticwebassets/modules/esm-dropdowns-871dcdb9.js",
+        "staticwebassets/modules/esm-dx-blazor-34ee4b34.js",
+        "staticwebassets/modules/esm-form-layout-219caf65.js",
+        "staticwebassets/modules/esm-grid-b1d16ea5.js",
+        "staticwebassets/modules/esm-popup-37bc9751.js",
+        "staticwebassets/modules/esm-popup-utils-80a5f7f4.js",
+        "staticwebassets/modules/esm-roller-4d6706e6.js",
+        "staticwebassets/modules/esm-scheduler-6d8171cd.js",
+        "staticwebassets/modules/esm-tagbox-d3f61fe4.js",
+        "staticwebassets/modules/esm-upload-7a301e63.js"
+      ]
+    },
+    "DevExtreme.AspNet.Data/2.5.1": {
+      "sha512": "iOsfNFr1o1BlBN64ypDA9c65G/frrxiB54oB05c59riW88btB/oMdvsR1G0lCqvQlxTP+usVDgzCXtiQnnHlig==",
+      "type": "package",
+      "path": "devextreme.aspnet.data/2.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "devextreme.aspnet.data.2.5.1.nupkg.sha512",
+        "devextreme.aspnet.data.nuspec",
+        "lib/net452/DevExtreme.AspNet.Data.dll",
+        "lib/net452/DevExtreme.AspNet.Data.xml",
+        "lib/netstandard2.0/DevExtreme.AspNet.Data.dll",
+        "lib/netstandard2.0/DevExtreme.AspNet.Data.xml"
+      ]
+    },
+    "Microsoft.AspNetCore.Authorization/3.1.2": {
+      "sha512": "bbu9qMsOdmNjLLaRawhT3OfjFHleK9D2ICGfmjvkMVNyfx42P5NgypOlqKgK6SDoqtex3DisWd4E3nePtohPCw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authorization/3.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authorization.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authorization.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.xml",
+        "microsoft.aspnetcore.authorization.3.1.2.nupkg.sha512",
+        "microsoft.aspnetcore.authorization.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Components/3.1.2": {
+      "sha512": "lLY10dGm/egqidXfAqBBbe2ANQGekv+ospuTGkDbmHoBC5MVRYk5iQIqOUVCSnxY9s2kFh3YsTZ6ElU9Cv9i3w==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.components/3.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.txt",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Components.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Components.xml",
+        "microsoft.aspnetcore.components.3.1.2.nupkg.sha512",
+        "microsoft.aspnetcore.components.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Components.Analyzers/3.1.2": {
+      "sha512": "inGAaJU8Qxxvw/BuimJ/L2P8yxlsI3EwMPBuwNCL5PZ5GOwEjNCTEGRRicqMM7W8NgwCrbsI7489o5Xkr/Cx/w==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.components.analyzers/3.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.txt",
+        "analyzers/dotnet/cs/Microsoft.AspNetCore.Components.Analyzers.dll",
+        "build/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.props",
+        "microsoft.aspnetcore.components.analyzers.3.1.2.nupkg.sha512",
+        "microsoft.aspnetcore.components.analyzers.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Components.Forms/3.1.2": {
+      "sha512": "fTL2kS8vNJadi6UVRlOeZqIhrulWKWr3Uy2zVoo2vMAkyOs2AoGq9mTUZHU2S6okpHiD9ovexil2n1bERFm2/w==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.components.forms/3.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.txt",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Forms.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Forms.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Components.Forms.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Components.Forms.xml",
+        "microsoft.aspnetcore.components.forms.3.1.2.nupkg.sha512",
+        "microsoft.aspnetcore.components.forms.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Components.Web/3.1.2": {
+      "sha512": "tkPkm2WlqhWh54KsWfJzdsIiSIlTpvVE2hSlwbeUDNq5bMwVc1WdBakNGblYpQKdrliBlxIg0QOZg4YqAJyBKw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.components.web/3.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.txt",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Web.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Web.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Components.Web.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Components.Web.xml",
+        "microsoft.aspnetcore.components.web.3.1.2.nupkg.sha512",
+        "microsoft.aspnetcore.components.web.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Metadata/3.1.2": {
+      "sha512": "4ML2fUxRyfrpXnAppHi8c7MDiTOr9yJ5/Sp6p8XktVw8H5CJJSs6KesM/mc9vREpg6FgC8EvgDRNKom6PLPcjQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.metadata/3.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Metadata.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Metadata.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.xml",
+        "microsoft.aspnetcore.metadata.3.1.2.nupkg.sha512",
+        "microsoft.aspnetcore.metadata.nuspec"
+      ]
+    },
     "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
       "sha512": "1Am6l4Vpn3/K32daEqZI+FFr96OlZkgwK2LcT3pZ2zWubR5zTPW3/FkO1Rat9kb7oQOa4rxgl9LJHc5tspCWfg==",
       "type": "package",
@@ -1787,6 +2104,22 @@
         "ref/xamarinmac20/Microsoft.Identity.Client.xml"
       ]
     },
+    "Microsoft.JSInterop/3.1.2": {
+      "sha512": "36NPmMYZ8L97/iJTd3ezY3Hrxh7XDbSOElQnZQ6eJpXD7bm1idX4NyUKKTGnmf3WPDzXwEDXvpOL2stiFxkcpA==",
+      "type": "package",
+      "path": "microsoft.jsinterop/3.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netcoreapp3.1/Microsoft.JSInterop.dll",
+        "lib/netcoreapp3.1/Microsoft.JSInterop.xml",
+        "lib/netstandard2.0/Microsoft.JSInterop.dll",
+        "lib/netstandard2.0/Microsoft.JSInterop.xml",
+        "microsoft.jsinterop.3.1.2.nupkg.sha512",
+        "microsoft.jsinterop.nuspec"
+      ]
+    },
     "Microsoft.NETCore.Platforms/2.0.0": {
       "sha512": "VdLJOCXhZaEMY7Hm2GKiULmn7IEPFE4XC5LPSfBVCUIA8YLZVh846gtfBJalsPQF2PlzdD7ecX7DZEulJ402ZQ==",
       "type": "package",
@@ -1857,6 +2190,36 @@
         "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Newtonsoft.Json/11.0.1": {
+      "sha512": "pNN4l+J6LlpIvHOeNdXlwxv39NPJ2B5klz+Rd2UQZIx30Squ5oND1Yy3wEAUoKn0GPUj6Yxt9lxlYWQqfZcvKg==",
+      "type": "package",
+      "path": "newtonsoft.json/11.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.11.0.1.nupkg.sha512",
+        "newtonsoft.json.nuspec"
       ]
     },
     "runtime.native.System/4.3.0": {
@@ -4960,6 +5323,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "DevExpress.Blazor >= 19.2.4",
       "Entities >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 3.1.2",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.2",
@@ -4967,33 +5331,33 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Usuario\\.nuget\\packages\\": {},
+    "C:\\Users\\Ronald\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\OneDrive\\Portafolio\\Project1\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "C:\\Proyecto1\\Repo\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "C:\\Users\\Usuario\\OneDrive\\Portafolio\\Project1\\DataAccess\\DataAccess.csproj",
-      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\OneDrive\\Portafolio\\Project1\\DataAccess\\obj\\",
+      "projectPath": "C:\\Proyecto1\\Repo\\DataAccess\\DataAccess.csproj",
+      "packagesPath": "C:\\Users\\Ronald\\.nuget\\packages\\",
+      "outputPath": "C:\\Proyecto1\\Repo\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ronald\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.2.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\DevExpress 18.2\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
-        "C:\\Program Files (x86)\\DevExpress 19.2\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://nuget.devexpress.com/RYOz3QKdvX6jqm7RuMiQSJfasLxyu4KPexyUzKu3XYdBUU9iMV/api": {}
@@ -5001,8 +5365,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Usuario\\OneDrive\\Portafolio\\Project1\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\Usuario\\OneDrive\\Portafolio\\Project1\\Entities\\Entities.csproj"
+            "C:\\Proyecto1\\Repo\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Proyecto1\\Repo\\Entities\\Entities.csproj"
             }
           }
         }
@@ -5016,6 +5380,10 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "DevExpress.Blazor": {
+            "target": "Package",
+            "version": "[19.2.4, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[3.1.2, )"
@@ -5042,11 +5410,14 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

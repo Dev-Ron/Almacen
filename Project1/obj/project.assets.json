@@ -1418,6 +1418,7 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "DataAccess": "1.0.0",
+          "DevExpress.Blazor": "19.2.4",
           "Entities": "1.0.0"
         },
         "compile": {
@@ -1425,12 +1426,16 @@
         },
         "runtime": {
           "bin/placeholder/Bussiness.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "DataAccess/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "DevExpress.Blazor": "19.2.4",
           "Entities": "1.0.0",
           "Microsoft.EntityFrameworkCore": "3.1.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.2"
@@ -1440,12 +1445,16 @@
         },
         "runtime": {
           "bin/placeholder/DataAccess.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Entities/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "DevExpress.Blazor": "19.2.4",
           "Microsoft.EntityFrameworkCore": "3.1.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.2"
         },
@@ -1454,7 +1463,10 @@
         },
         "runtime": {
           "bin/placeholder/Entities.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -5440,33 +5452,33 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Usuario\\.nuget\\packages\\": {},
+    "C:\\Users\\Ronald\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\OneDrive\\Portafolio\\Project1\\Project1\\Project1.csproj",
+      "projectUniqueName": "C:\\Proyecto1\\Repo\\Project1\\Project1.csproj",
       "projectName": "Project1",
-      "projectPath": "C:\\Users\\Usuario\\OneDrive\\Portafolio\\Project1\\Project1\\Project1.csproj",
-      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\OneDrive\\Portafolio\\Project1\\Project1\\obj\\",
+      "projectPath": "C:\\Proyecto1\\Repo\\Project1\\Project1.csproj",
+      "packagesPath": "C:\\Users\\Ronald\\.nuget\\packages\\",
+      "outputPath": "C:\\Proyecto1\\Repo\\Project1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ronald\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.2.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\DevExpress 18.2\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
-        "C:\\Program Files (x86)\\DevExpress 19.2\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://nuget.devexpress.com/RYOz3QKdvX6jqm7RuMiQSJfasLxyu4KPexyUzKu3XYdBUU9iMV/api": {}
@@ -5474,11 +5486,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Usuario\\OneDrive\\Portafolio\\Project1\\Bussiness\\Bussiness.csproj": {
-              "projectPath": "C:\\Users\\Usuario\\OneDrive\\Portafolio\\Project1\\Bussiness\\Bussiness.csproj"
+            "C:\\Proyecto1\\Repo\\Bussiness\\Bussiness.csproj": {
+              "projectPath": "C:\\Proyecto1\\Repo\\Bussiness\\Bussiness.csproj"
             },
-            "C:\\Users\\Usuario\\OneDrive\\Portafolio\\Project1\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\Usuario\\OneDrive\\Portafolio\\Project1\\Entities\\Entities.csproj"
+            "C:\\Proyecto1\\Repo\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Proyecto1\\Repo\\Entities\\Entities.csproj"
             }
           }
         }
@@ -5537,7 +5549,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

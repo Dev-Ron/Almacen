@@ -11,3 +11,17 @@ C:\Users\Usuario\OneDrive\Portafolio\Project1\Bussiness\obj\Debug\netcoreapp3.1\
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Bussiness\obj\Debug\netcoreapp3.1\Bussiness.csproj.CopyComplete
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Bussiness\obj\Debug\netcoreapp3.1\Bussiness.dll
 C:\Users\Usuario\OneDrive\Portafolio\Project1\Bussiness\obj\Debug\netcoreapp3.1\Bussiness.pdb
+C:\Proyecto1\Repo\Bussiness\obj\Debug\netcoreapp3.1\Bussiness.dll
+C:\Proyecto1\Repo\Bussiness\obj\Debug\netcoreapp3.1\Bussiness.pdb
+C:\Proyecto1\Repo\Bussiness\bin\Debug\netcoreapp3.1\Bussiness.deps.json
+C:\Proyecto1\Repo\Bussiness\bin\Debug\netcoreapp3.1\Bussiness.dll
+C:\Proyecto1\Repo\Bussiness\bin\Debug\netcoreapp3.1\Bussiness.pdb
+C:\Proyecto1\Repo\Bussiness\bin\Debug\netcoreapp3.1\DataAccess.dll
+C:\Proyecto1\Repo\Bussiness\bin\Debug\netcoreapp3.1\Entities.dll
+C:\Proyecto1\Repo\Bussiness\bin\Debug\netcoreapp3.1\DataAccess.pdb
+C:\Proyecto1\Repo\Bussiness\bin\Debug\netcoreapp3.1\Entities.pdb
+C:\Proyecto1\Repo\Bussiness\obj\Debug\netcoreapp3.1\Bussiness.csprojAssemblyReference.cache
+C:\Proyecto1\Repo\Bussiness\obj\Debug\netcoreapp3.1\Bussiness.AssemblyInfoInputs.cache
+C:\Proyecto1\Repo\Bussiness\obj\Debug\netcoreapp3.1\Bussiness.AssemblyInfo.cs
+C:\Proyecto1\Repo\Bussiness\obj\Debug\netcoreapp3.1\Bussiness.csproj.CopyComplete
+C:\Proyecto1\Repo\Bussiness\obj\Debug\netcoreapp3.1\Bussiness.csproj.CoreCompileInputs.cache

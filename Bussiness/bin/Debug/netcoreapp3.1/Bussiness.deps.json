@@ -9,10 +9,96 @@
       "Bussiness/1.0.0": {
         "dependencies": {
           "DataAccess": "1.0.0",
+          "DevExpress.Blazor": "19.2.4",
           "Entities": "1.0.0"
         },
         "runtime": {
           "Bussiness.dll": {}
+        }
+      },
+      "DevExpress.Blazor/19.2.4": {
+        "dependencies": {
+          "DevExtreme.AspNet.Data": "2.5.1",
+          "Microsoft.AspNetCore.Components": "3.1.2",
+          "Microsoft.AspNetCore.Components.Web": "3.1.2"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/DevExpress.Blazor.dll": {
+            "assemblyVersion": "19.2.4.0",
+            "fileVersion": "19.2.4.0"
+          }
+        }
+      },
+      "DevExtreme.AspNet.Data/2.5.1": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0",
+          "Newtonsoft.Json": "11.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/DevExtreme.AspNet.Data.dll": {
+            "assemblyVersion": "2.5.1.0",
+            "fileVersion": "2.5.1.0"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authorization/3.1.2": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Metadata": "3.1.2",
+          "Microsoft.Extensions.Logging.Abstractions": "3.1.2",
+          "Microsoft.Extensions.Options": "3.1.2"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authorization.dll": {
+            "assemblyVersion": "3.1.2.0",
+            "fileVersion": "3.100.220.6801"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Components/3.1.2": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "3.1.2",
+          "Microsoft.AspNetCore.Components.Analyzers": "3.1.2",
+          "Microsoft.JSInterop": "3.1.2"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.dll": {
+            "assemblyVersion": "3.1.2.0",
+            "fileVersion": "3.100.220.6801"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Components.Analyzers/3.1.2": {},
+      "Microsoft.AspNetCore.Components.Forms/3.1.2": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.2"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Forms.dll": {
+            "assemblyVersion": "3.1.2.0",
+            "fileVersion": "3.100.220.6801"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Components.Web/3.1.2": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.2",
+          "Microsoft.AspNetCore.Components.Forms": "3.1.2",
+          "Microsoft.Extensions.DependencyInjection": "3.1.2",
+          "Microsoft.JSInterop": "3.1.2"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Web.dll": {
+            "assemblyVersion": "3.1.2.0",
+            "fileVersion": "3.100.220.6801"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Metadata/3.1.2": {
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Metadata.dll": {
+            "assemblyVersion": "3.1.2.0",
+            "fileVersion": "3.100.220.6801"
+          }
         }
       },
       "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
@@ -252,12 +338,28 @@
           }
         }
       },
+      "Microsoft.JSInterop/3.1.2": {
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.JSInterop.dll": {
+            "assemblyVersion": "3.1.2.0",
+            "fileVersion": "3.100.220.6706"
+          }
+        }
+      },
       "Microsoft.NETCore.Platforms/2.0.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
       "Microsoft.Win32.Registry/4.5.0": {
         "dependencies": {
           "System.Security.AccessControl": "4.5.0",
           "System.Security.Principal.Windows": "4.5.0"
+        }
+      },
+      "Newtonsoft.Json/11.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.1.21818"
+          }
         }
       },
       "runtime.native.System/4.3.0": {
@@ -694,12 +796,6 @@
       "System.Security.Permissions/4.5.0": {
         "dependencies": {
           "System.Security.AccessControl": "4.5.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Security.Permissions.dll": {
-            "assemblyVersion": "4.0.1.0",
-            "fileVersion": "4.6.26515.6"
-          }
         }
       },
       "System.Security.Principal.Windows/4.5.0": {
@@ -837,6 +933,7 @@
       },
       "DataAccess/1.0.0": {
         "dependencies": {
+          "DevExpress.Blazor": "19.2.4",
           "Entities": "1.0.0",
           "Microsoft.EntityFrameworkCore": "3.1.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.2"
@@ -847,6 +944,7 @@
       },
       "Entities/1.0.0": {
         "dependencies": {
+          "DevExpress.Blazor": "19.2.4",
           "Microsoft.EntityFrameworkCore": "3.1.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.2"
         },
@@ -861,6 +959,62 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "DevExpress.Blazor/19.2.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gXEGGl0cPWgmO5NOrcVVJ/fhMu3WxLijZgqabBuo5yDF/eIG/lDqg73nZwFkBTsJF1qp+rqyk4CQG0DmFogohw==",
+      "path": "devexpress.blazor/19.2.4",
+      "hashPath": "devexpress.blazor.19.2.4.nupkg.sha512"
+    },
+    "DevExtreme.AspNet.Data/2.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iOsfNFr1o1BlBN64ypDA9c65G/frrxiB54oB05c59riW88btB/oMdvsR1G0lCqvQlxTP+usVDgzCXtiQnnHlig==",
+      "path": "devextreme.aspnet.data/2.5.1",
+      "hashPath": "devextreme.aspnet.data.2.5.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authorization/3.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bbu9qMsOdmNjLLaRawhT3OfjFHleK9D2ICGfmjvkMVNyfx42P5NgypOlqKgK6SDoqtex3DisWd4E3nePtohPCw==",
+      "path": "microsoft.aspnetcore.authorization/3.1.2",
+      "hashPath": "microsoft.aspnetcore.authorization.3.1.2.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components/3.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lLY10dGm/egqidXfAqBBbe2ANQGekv+ospuTGkDbmHoBC5MVRYk5iQIqOUVCSnxY9s2kFh3YsTZ6ElU9Cv9i3w==",
+      "path": "microsoft.aspnetcore.components/3.1.2",
+      "hashPath": "microsoft.aspnetcore.components.3.1.2.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Analyzers/3.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-inGAaJU8Qxxvw/BuimJ/L2P8yxlsI3EwMPBuwNCL5PZ5GOwEjNCTEGRRicqMM7W8NgwCrbsI7489o5Xkr/Cx/w==",
+      "path": "microsoft.aspnetcore.components.analyzers/3.1.2",
+      "hashPath": "microsoft.aspnetcore.components.analyzers.3.1.2.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Forms/3.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fTL2kS8vNJadi6UVRlOeZqIhrulWKWr3Uy2zVoo2vMAkyOs2AoGq9mTUZHU2S6okpHiD9ovexil2n1bERFm2/w==",
+      "path": "microsoft.aspnetcore.components.forms/3.1.2",
+      "hashPath": "microsoft.aspnetcore.components.forms.3.1.2.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Web/3.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tkPkm2WlqhWh54KsWfJzdsIiSIlTpvVE2hSlwbeUDNq5bMwVc1WdBakNGblYpQKdrliBlxIg0QOZg4YqAJyBKw==",
+      "path": "microsoft.aspnetcore.components.web/3.1.2",
+      "hashPath": "microsoft.aspnetcore.components.web.3.1.2.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Metadata/3.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4ML2fUxRyfrpXnAppHi8c7MDiTOr9yJ5/Sp6p8XktVw8H5CJJSs6KesM/mc9vREpg6FgC8EvgDRNKom6PLPcjQ==",
+      "path": "microsoft.aspnetcore.metadata/3.1.2",
+      "hashPath": "microsoft.aspnetcore.metadata.3.1.2.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
       "type": "package",
@@ -1009,6 +1163,13 @@
       "path": "microsoft.identity.client/3.0.8",
       "hashPath": "microsoft.identity.client.3.0.8.nupkg.sha512"
     },
+    "Microsoft.JSInterop/3.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-36NPmMYZ8L97/iJTd3ezY3Hrxh7XDbSOElQnZQ6eJpXD7bm1idX4NyUKKTGnmf3WPDzXwEDXvpOL2stiFxkcpA==",
+      "path": "microsoft.jsinterop/3.1.2",
+      "hashPath": "microsoft.jsinterop.3.1.2.nupkg.sha512"
+    },
     "Microsoft.NETCore.Platforms/2.0.0": {
       "type": "package",
       "serviceable": true,
@@ -1029,6 +1190,13 @@
       "sha512": "sha512-+FWlwd//+Tt56316p00hVePBCouXyEzT86Jb3+AuRotTND0IYn0OO3obs1gnQEs/txEnt+rF2JBGLItTG+Be6A==",
       "path": "microsoft.win32.registry/4.5.0",
       "hashPath": "microsoft.win32.registry.4.5.0.nupkg.sha512"
+    },
+    "Newtonsoft.Json/11.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pNN4l+J6LlpIvHOeNdXlwxv39NPJ2B5klz+Rd2UQZIx30Squ5oND1Yy3wEAUoKn0GPUj6Yxt9lxlYWQqfZcvKg==",
+      "path": "newtonsoft.json/11.0.1",
+      "hashPath": "newtonsoft.json.11.0.1.nupkg.sha512"
     },
     "runtime.native.System/4.3.0": {
       "type": "package",
