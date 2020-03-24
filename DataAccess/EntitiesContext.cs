@@ -19,6 +19,7 @@ namespace Entities
             if (!options.IsConfigured)
             {
                 options.UseSqlServer("Server=tcp:ronalservidorestudiante.database.windows.net,1433;Initial Catalog=Project 1;Persist Security Info=False;User ID=rmgelvez;Password=Rm1094277320;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                
             }
         }
     }

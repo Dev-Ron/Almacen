@@ -1,19 +1,19 @@
-﻿@using Entities
+﻿@page  "/Categories/ListaCategories"
+@using Entities
 @using Bussiness
 @using DevExpress.Blazor
 @using Newtonsoft.Json
 @inject B_Category Category
 
-    <DxDataGrid T="CategoryEntity" DataAsync="@Category.CategoryList" ShowFilterRow=true
 
-                RowUpdating=@((row, newValues) => OnRowUpdating(row as CategoryEntity, newValues))
-                RowInserting=@((row) => OnRowInserting(row))
-                RowRemoving="@((row) => Delete(row as CategoryEntity))"
-                >
-                
-        <DxDataGridCommandColumn Width="20%"></DxDataGridCommandColumn>
-        <DxDataGridColumn Caption="Nombre" Field="@nameof(CategoryEntity.Name)"> </DxDataGridColumn>
-    </DxDataGrid>
+<DxDataGrid T="CategoryEntity" DataAsync="@Category.CategoryList" ShowFilterRow=true
+            RowUpdating=@((row, newValues) => OnRowUpdating(row as CategoryEntity, newValues))
+            RowInserting=@((row) => OnRowInserting(row))
+            RowRemoving="@((row) => Delete(row as CategoryEntity))">
+
+    <DxDataGridCommandColumn Width="20%"></DxDataGridCommandColumn>
+    <DxDataGridColumn Caption="Nombre" Field="@nameof(CategoryEntity.Name)"> </DxDataGridColumn>
+</DxDataGrid>
 
 
 

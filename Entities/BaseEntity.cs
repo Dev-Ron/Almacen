@@ -11,8 +11,6 @@ namespace Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime ModificationDate { get; set; }
+        public DateTime? ModificationDate { get; set; } = DateTime.Now;
     }
 }

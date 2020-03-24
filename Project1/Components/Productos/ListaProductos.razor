@@ -1,0 +1,52 @@
+﻿@page  "/Productos/ListaProductos"
+
+@using Entities
+@using Bussiness
+@using DevExpress.Blazor
+@using Newtonsoft.Json
+
+@inject B_Product Product
+@inject B_Category Category
+
+<h3>Lista de Productos</h3>
+
+<DxDataGrid T="ProductEntity" DataAsync="@Product.ProductList" ShowFilterRow=true
+            RowUpdating=@((row, newValues) => OnRowUpdating(row as ProductEntity, newValues))
+            RowInserting=@((row) => OnRowInserting(row))
+            RowRemoving="@((row) => Delete(row as ProductEntity))">
+
+    <DxDataGridCommandColumn Width="20%"></DxDataGridCommandColumn>
+    <DxDataGridColumn Caption="Nombre" Field="@nameof(ProductEntity.Name)"> </DxDataGridColumn>
+    <DxDataGridSpinEditColumn Caption="Cantidad" Field="@nameof(ProductEntity.TotalQuantity)"> </DxDataGridSpinEditColumn>
+    <DxDataGridComboBoxColumn ValueFieldName="Id" TextFieldName="Name" Field="@nameof(ProductEntity.CategoryEntity)" Caption="Categoria" DataAsync="@Category.CategoryList" TextAlignment="@DataGridTextAlign.Left" Width="150px" />
+</DxDataGrid>
+
+
+
+@code {
+
+    async void OnRowUpdating(ProductEntity dataItem, Dictionary<string, object> newValue)
+    {
+        string values = JsonConvert.SerializeObject(newValue);
+        JsonConvert.PopulateObject(values, dataItem);
+        await Product.UpdateProduct(dataItem);
+    }
+
+
+    async void OnRowInserting(Dictionary<string, object> newValue)
+    {
+        ProductEntity productEntitynew = new ProductEntity();
+        string values = JsonConvert.SerializeObject(newValue);
+        JsonConvert.PopulateObject(values, productEntitynew);
+        await Product.CreateProduct(productEntitynew);
+    }
+
+
+    async void Delete(ProductEntity item)
+    {
+        if (item != null)
+        {
+            await Product.DeleteProduct(item);
+        }
+    }
+}

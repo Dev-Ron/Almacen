@@ -34,6 +34,7 @@ namespace Project1
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
             services.AddScoped<B_Category>();
+            services.AddScoped<B_Product>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
