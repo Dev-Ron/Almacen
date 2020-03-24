@@ -1,4 +1,5 @@
 ﻿using Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace Bussiness
         {
             using (var db = new EntitiesContext())
             {
-                return await Task.FromResult(db.Products.ToList());
+                return await Task.FromResult(db.Products.Include(s => s.CategoryEntity).ToList());
             }
         }
 

@@ -18,7 +18,7 @@
     <DxDataGridCommandColumn Width="20%"></DxDataGridCommandColumn>
     <DxDataGridColumn Caption="Nombre" Field="@nameof(ProductEntity.Name)"> </DxDataGridColumn>
     <DxDataGridSpinEditColumn Caption="Cantidad" Field="@nameof(ProductEntity.TotalQuantity)"> </DxDataGridSpinEditColumn>
-    <DxDataGridComboBoxColumn ValueFieldName="Id" TextFieldName="Name" Field="@nameof(ProductEntity.CategoryEntity)" Caption="Categoria" DataAsync="@Category.CategoryList" TextAlignment="@DataGridTextAlign.Left" Width="150px" />
+    <DxDataGridComboBoxColumn ValueFieldName="@nameof(CategoryEntity.ModificationDate)" TextFieldName="@nameof(ProductEntity.CategoryEntity.Name)" Field="@nameof(ProductEntity.CategoryEntity)" Caption="Categoria" DataAsync="@Category.CategoryList" TextAlignment="@DataGridTextAlign.Left" Width="150px" />
 </DxDataGrid>
 
 
