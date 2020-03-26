@@ -10,16 +10,22 @@
 
 <h3>Lista de Productos</h3>
 
-<DxDataGrid T="ProductEntity" DataAsync="@Product.ProductList" KeyFieldName="Id" ShowFilterRow=true
+<DxDataGrid T="ProductEntity" DataAsync="@Product.ProductList" KeyFieldName="Id"
             RowUpdating=@((row, newValues) => OnRowUpdating(row as ProductEntity, newValues))
             RowInserting=@((row) => OnRowInserting(row))
-            RowRemoving="@((row) => Delete(row as ProductEntity))">
+            RowRemoving="@((row) => Delete(row as ProductEntity))"
+            >
+
     <DxDataGridCommandColumn Width="20%"></DxDataGridCommandColumn>
-    <DxDataGridColumn Caption="Nombre" Field="@nameof(ProductEntity.Name)"> </DxDataGridColumn>
-    <DxDataGridSpinEditColumn Caption="Cantidad" Field="@nameof(ProductEntity.TotalQuantity)"> </DxDataGridSpinEditColumn>
+    <DxDataGridColumn Caption="Nombre" Field="@nameof(ProductEntity.Name)"/> 
+    <DxDataGridSpinEditColumn Caption="Cantidad" 
+                              Field="@nameof(ProductEntity.TotalQuantity)"/> 
     
-    <DxDataGridComboBoxColumn T="CategoryEntity" Field="@(nameof(ProductEntity.CategoryEntity))" 
-                              TextFieldName="@nameof(ProductEntity.CategoryEntity.Name)" Caption="Categoria" DataAsync="@Category.CategoryList" />
+    <DxDataGridComboBoxColumn T="CategoryEntity" 
+                              Field="@nameof(ProductEntity.CategoryEntity)"
+                              TextFieldName="@nameof(ProductEntity.CategoryEntity.Name)" 
+                              Caption="Categoria1" 
+                              DataAsync="@Category.CategoryList" />
 </DxDataGrid>
 
 
