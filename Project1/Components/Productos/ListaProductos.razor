@@ -10,13 +10,23 @@
 
 <h3>Lista de Productos</h3>
 
-<DxDataGrid T="ProductEntity" DataAsync="@Product.ProductList" KeyFieldName="Id"
+<DxDataGrid T="ProductEntity" DataAsync="@Product.ProductList" 
+            @ref="MyGrid"
+            KeyFieldName="Id"
             RowUpdating=@((row, newValues) => OnRowUpdating(row as ProductEntity, newValues))
             RowInserting=@((row) => OnRowInserting(row))
-            RowRemoving="@((row) => Delete(row as ProductEntity))"
-            >
+            RowRemoving="@((row) => Delete(row as ProductEntity))">
 
-    <DxDataGridCommandColumn Width="20%"></DxDataGridCommandColumn>
+    <DxDataGridCommandColumn Width="10%">
+        <HeaderCellTemplate>
+            <a class="oi oi-plus" @onclick="@(() => MyGrid.StartRowEdit(null))" href="javascript:void(0);"></a>
+        </HeaderCellTemplate>
+        <CellTemplate>
+            <a class="oi oi-pencil" @onclick="@(() => MyGrid.StartRowEdit(context))" href="javascript:void(0);"></a>
+            <a class="oi oi-x" @onclick="@(() => Delete(context as ProductEntity))" href="javascript:void(0);"></a>
+        </CellTemplate>
+    </DxDataGridCommandColumn>
+
     <DxDataGridColumn Caption="Nombre" Field="@nameof(ProductEntity.Name)"/> 
     <DxDataGridSpinEditColumn Caption="Cantidad" 
                               Field="@nameof(ProductEntity.TotalQuantity)"/> 
@@ -31,6 +41,7 @@
 
 
 @code {
+    DxDataGrid<ProductEntity> MyGrid;
 
     async void OnRowUpdating(ProductEntity dataItem, Dictionary<string, object> newValue)
     {
