@@ -10,7 +10,7 @@
 
 <h3>Lista de Productos</h3>
 
-<DxDataGrid T="ProductEntity" DataAsync="@Product.ProductList" ShowFilterRow=true
+<DxDataGrid T="ProductEntity" DataAsync="@Product.ProductList" KeyFieldName="Id" ShowFilterRow=true
             RowUpdating=@((row, newValues) => OnRowUpdating(row as ProductEntity, newValues))
             RowInserting=@((row) => OnRowInserting(row))
             RowRemoving="@((row) => Delete(row as ProductEntity))">
@@ -18,7 +18,7 @@
     <DxDataGridCommandColumn Width="20%"></DxDataGridCommandColumn>
     <DxDataGridColumn Caption="Nombre" Field="@nameof(ProductEntity.Name)"> </DxDataGridColumn>
     <DxDataGridSpinEditColumn Caption="Cantidad" Field="@nameof(ProductEntity.TotalQuantity)"> </DxDataGridSpinEditColumn>
-    <DxDataGridComboBoxColumn T="CategoryEntity" Field="CategoryEntity!" ValueFieldName="@nameof(ProductEntity.CategoryEntity.Id)"  TextFieldName="@nameof(ProductEntity.CategoryEntity.Name)" Caption="Categoria" DataAsync="@Category.CategoryList" TextAlignment="@DataGridTextAlign.Left" Width="150px" />
+    <DxDataGridComboBoxColumn T="CategoryEntity" Field="@nameof(ProductEntity.CategoryEntity)"  TextFieldName="Name"  Caption="Categoria" DataAsync="@Category.CategoryList" TextAlignment="@DataGridTextAlign.Left" Width="150px" />
 </DxDataGrid>
 
 
