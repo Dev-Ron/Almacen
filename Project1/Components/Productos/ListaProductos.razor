@@ -10,38 +10,53 @@
 
 <h3>Lista de Productos</h3>
 
-<DxDataGrid T="ProductEntity" DataAsync="@Product.ProductList" 
+<DxDataGrid T="ProductEntity" DataAsync="@Product.ProductList"
             @ref="MyGrid"
             KeyFieldName="Id"
             RowUpdating=@((row, newValues) => OnRowUpdating(row as ProductEntity, newValues))
             RowInserting=@((row) => OnRowInserting(row))
             RowRemoving="@((row) => Delete(row as ProductEntity))">
 
-    <DxDataGridCommandColumn Width="10%">
+    <DxDataGridCommandColumn Width="10%" ClearFilterButtonVisible="false">
         <HeaderCellTemplate>
-            <a class="oi oi-plus" @onclick="@(() => MyGrid.StartRowEdit(null))" href="javascript:void(0);"></a>
+            <a class="oi oi-plus" @onclick="@(() => PopupVisible = true)" href="javascript:void(0);"></a>
         </HeaderCellTemplate>
         <CellTemplate>
-            <a class="oi oi-pencil" @onclick="@(() => MyGrid.StartRowEdit(context))" href="javascript:void(0);"></a>
-            <a class="oi oi-x" @onclick="@(() => Delete(context as ProductEntity))" href="javascript:void(0);"></a>
+            <a class="oi oi-pencil col-6" @onclick="@(() => MyGrid.StartRowEdit(context))" href="javascript:void(0);"></a>
+            <a class="oi oi-x col-6" @onclick="@(() => Delete(context as ProductEntity))" href="javascript:void(0);"></a>
         </CellTemplate>
     </DxDataGridCommandColumn>
 
-    <DxDataGridColumn Caption="Nombre" Field="@nameof(ProductEntity.Name)"/> 
-    <DxDataGridSpinEditColumn Caption="Cantidad" 
-                              Field="@nameof(ProductEntity.TotalQuantity)"/> 
-    
-    <DxDataGridComboBoxColumn T="CategoryEntity" 
-                              Field="@nameof(ProductEntity.CategoryEntity)"
-                              TextFieldName="@nameof(ProductEntity.CategoryEntity.Name)" 
-                              Caption="Categoria1" 
+    <DxDataGridColumn Caption="Nombre" Field="@nameof(ProductEntity.Name)" />
+    <DxDataGridSpinEditColumn Caption="Cantidad"
+                              Field="@nameof(ProductEntity.TotalQuantity)" />
+
+    <DxDataGridComboBoxColumn T="CategoryEntity"
+                              Field="@nameof(ProductEntity.CategoryEntity.Id)"
+                              ValueFieldName="@nameof(ProductEntity.CategoryEntity.Id)"
+                              TextFieldName="@nameof(ProductEntity.CategoryEntity.Name)"
+                              Caption="Categoria1"
                               DataAsync="@Category.CategoryList" />
 </DxDataGrid>
+
+
+<DxPopup HeaderText="Header"
+         @bind-Visible="@PopupVisible">
+    <Content>
+        <Producto/>
+    </Content>
+    <FooterTemplate>
+        <button class="btn btn-primary" @onclick="@(() => PopupVisible = false)">OK</button>
+    </FooterTemplate>
+</DxPopup>
+
+
 
 
 
 @code {
     DxDataGrid<ProductEntity> MyGrid;
+    bool PopupVisible { get; set; }
 
     async void OnRowUpdating(ProductEntity dataItem, Dictionary<string, object> newValue)
     {

@@ -1,0 +1,38 @@
+﻿@using Entities
+@using Bussiness
+@using DevExpress.Blazor
+@using Newtonsoft.Json
+@inject B_Product Product
+@inject B_Category Category
+<h3>Producto</h3>
+
+<EditForm Model="@product" Context="EntitiesContext">
+    <DataAnnotationsValidator />
+    <DxFormLayout Data="@product">
+        <DxFormLayoutItem Field="@nameof(ProductEntity.Name)" Caption="Nombre del producto:" ColSpanMd="6">
+            <Template>
+                <DxTextBox @bind-Text="@product.Name" />
+            </Template>
+        </DxFormLayoutItem>
+        <DxFormLayoutItem Field="@nameof(ProductEntity.TotalQuantity)" Caption="Cantidad:" ColSpanMd="6">
+            <Template>
+                <DxTextBox @bind-Text="@product.Name" />
+            </Template>
+        </DxFormLayoutItem>
+        <DxFormLayoutItem Field="@nameof(ProductEntity.CategoryEntity)" Caption="Cantidad:" ColSpanMd="6">
+            <Template>
+                <DxComboBox NullText="Seleccione una categoría"
+                            T="CategoryEntity"
+                            ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"
+                            @bind-SelectedItem="@product.CategoryEntity"
+                            Data="@categories">
+                </DxComboBox>
+            </Template>
+        </DxFormLayoutItem>
+    </DxFormLayout>
+</EditForm>
+
+@code {
+    ProductEntity product = new ProductEntity();
+    List<CategoryEntity> categories = new List<CategoryEntity>();
+        }
