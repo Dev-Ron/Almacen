@@ -6,7 +6,7 @@
 @inject B_Category Category
 
 
-<DxDataGrid T="CategoryEntity" DataAsync="@Category.CategoryList" ShowFilterRow=true
+<DxDataGrid T="CategoryEntity" Data="@categories" ShowFilterRow=true
             RowUpdating=@((row, newValues) => OnRowUpdating(row as CategoryEntity, newValues))
             RowInserting=@((row) => OnRowInserting(row))
             RowRemoving="@((row) => Delete(row as CategoryEntity))">
@@ -18,6 +18,13 @@
 
 
 @code {
+
+    List<CategoryEntity> categories = new List<CategoryEntity>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        categories = B_Category.CategoryList();
+    }
 
     async void OnRowUpdating(CategoryEntity dataItem, Dictionary<string, object> newValue)
     {

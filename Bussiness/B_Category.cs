@@ -11,11 +11,11 @@ namespace Bussiness
     public class B_Category
     {
 
-        public async Task<IEnumerable<CategoryEntity>> CategoryList(CancellationToken ct=default)
+        public static List<CategoryEntity> CategoryList()
         {
             using (var db = new EntitiesContext())
             {
-                return await Task.FromResult(db.Categories.ToList());
+                return (db.Categories.ToList());
             }
         }
 

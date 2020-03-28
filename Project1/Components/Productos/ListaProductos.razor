@@ -6,7 +6,6 @@
 @using Newtonsoft.Json
 
 @inject B_Product Product
-@inject B_Category Category
 
 <h3>Lista de Productos</h3>
 
@@ -31,22 +30,19 @@
     <DxDataGridSpinEditColumn Caption="Cantidad"
                               Field="@nameof(ProductEntity.TotalQuantity)" />
 
-    <DxDataGridComboBoxColumn T="CategoryEntity"
-                              Field="@nameof(ProductEntity.CategoryEntity.Id)"
-                              ValueFieldName="@nameof(ProductEntity.CategoryEntity.Id)"
-                              TextFieldName="@nameof(ProductEntity.CategoryEntity.Name)"
-                              Caption="Categoria1"
-                              DataAsync="@Category.CategoryList" />
+    <DxDataGridColumn 
+                              Field="CategoryEntity.Name"
+                              Caption="Categoria"/>
 </DxDataGrid>
 
 
-<DxPopup HeaderText="Header"
+<DxPopup HeaderText="Información del producto"
          @bind-Visible="@PopupVisible">
     <Content>
-        <Producto/>
+        <Producto />
     </Content>
     <FooterTemplate>
-        <button class="btn btn-primary" @onclick="@(() => PopupVisible = false)">OK</button>
+        <button class="btn btn-primary" @onclick="@(() => PopupVisible = false)">Guardar</button>
     </FooterTemplate>
 </DxPopup>
 
@@ -57,29 +53,32 @@
 @code {
     DxDataGrid<ProductEntity> MyGrid;
     bool PopupVisible { get; set; }
+   
 
-    async void OnRowUpdating(ProductEntity dataItem, Dictionary<string, object> newValue)
+    async void OnRowUpdating(ProductEntity dataItem, Dictionary<string, object>
+    newValue)
     {
-        string values = JsonConvert.SerializeObject(newValue);
-        JsonConvert.PopulateObject(values, dataItem);
-        await Product.UpdateProduct(dataItem);
+    string values = JsonConvert.SerializeObject(newValue);
+    JsonConvert.PopulateObject(values, dataItem);
+    await Product.UpdateProduct(dataItem);
     }
 
 
-    async void OnRowInserting(Dictionary<string, object> newValue)
-    {
+    async void OnRowInserting(Dictionary<string, object>
+        newValue)
+        {
         ProductEntity productEntitynew = new ProductEntity();
         string values = JsonConvert.SerializeObject(newValue);
         JsonConvert.PopulateObject(values, productEntitynew);
         await Product.CreateProduct(productEntitynew);
-    }
+        }
 
 
-    async void Delete(ProductEntity item)
-    {
+        async void Delete(ProductEntity item)
+        {
         if (item != null)
         {
-            await Product.DeleteProduct(item);
+        await Product.DeleteProduct(item);
         }
-    }
-}
+        }
+        }

@@ -25,7 +25,8 @@
                             T="CategoryEntity"
                             ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"
                             @bind-SelectedItem="@product.CategoryEntity"
-                            Data="@categories">
+                            Data="@categories"
+                            TextFieldName="@nameof(ProductEntity.CategoryEntity.Name)">
                 </DxComboBox>
             </Template>
         </DxFormLayoutItem>
@@ -35,4 +36,9 @@
 @code {
     ProductEntity product = new ProductEntity();
     List<CategoryEntity> categories = new List<CategoryEntity>();
-        }
+
+    protected override async Task OnInitializedAsync()
+    {
+        categories = B_Category.CategoryList();
+    }
+}
