@@ -19,6 +19,14 @@ namespace Bussiness
             }
         }
 
+        public async Task<IEnumerable<CategoryEntity>> CategoryList(CancellationToken ct = default)
+        {
+            using (var db = new EntitiesContext())
+            {
+                return await Task.FromResult(db.Categories.ToList());
+            }
+        }
+
         public Task CreateCategory(CategoryEntity oCategory)
         {
             using (var db = new EntitiesContext())

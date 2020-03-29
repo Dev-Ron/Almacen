@@ -1,53 +1,92 @@
 ﻿@page  "/Categories/ListaCategories"
+
 @using Entities
 @using Bussiness
 @using DevExpress.Blazor
 @using Newtonsoft.Json
+
 @inject B_Category Category
 
+<h3>Lista de Categorias</h3>
 
-<DxDataGrid T="CategoryEntity" Data="@categories" ShowFilterRow=true
-            RowUpdating=@((row, newValues) => OnRowUpdating(row as CategoryEntity, newValues))
-            RowInserting=@((row) => OnRowInserting(row))
-            RowRemoving="@((row) => Delete(row as CategoryEntity))">
+<DxDataGrid T="CategoryEntity" DataAsync="@Category.CategoryList"
+            @ref="MyGrid"
+            KeyFieldName="Id">
 
-    <DxDataGridCommandColumn Width="20%"></DxDataGridCommandColumn>
-    <DxDataGridColumn Caption="Nombre" Field="@nameof(CategoryEntity.Name)"> </DxDataGridColumn>
+    <DxDataGridCommandColumn Width="10%" ClearFilterButtonVisible="false">
+        <HeaderCellTemplate>
+            <a class="oi oi-plus" @onclick="@(() => CategoryFocus(new CategoryEntity()))" href="javascript:void(0);"></a>
+        </HeaderCellTemplate>
+        <CellTemplate>
+            <a class="oi oi-pencil col-6" @onclick="@(() => CategoryFocus(context as CategoryEntity))" href="javascript:void(0);"></a>
+            <a class="oi oi-x col-6" @onclick="@(() => Delete(context as CategoryEntity))" href="javascript:void(0);"></a>
+        </CellTemplate>
+    </DxDataGridCommandColumn>
+
+    <DxDataGridColumn Caption="Nombre" Field="@nameof(CategoryEntity.Name)" />
 </DxDataGrid>
+
+
+<DxPopup HeaderText="Información del Categoryo"
+         CssClass="myPopupCss"
+         @bind-Visible="@PopupVisible">
+    <Content>
+        <Category CategoryToSave="@CategorySelected" />
+    </Content>
+    <FooterTemplate>
+        <button class="btn btn-primary" @onclick="@(() => SaveCategory(CategorySelected))">Guardar</button>
+    </FooterTemplate>
+</DxPopup>
+
+
 
 
 
 @code {
+    DxDataGrid<CategoryEntity> MyGrid;
+    bool PopupVisible { get; set; }
+    CategoryEntity CategorySelected = new CategoryEntity();
 
-    List<CategoryEntity> categories = new List<CategoryEntity>();
+    #region CRUD
 
-    protected override async Task OnInitializedAsync()
+    /// <summary>
+    /// This method start when is click the button Add or Update
+    /// </summary>
+    /// <param name="Category"></param>
+    void CategoryFocus(CategoryEntity Category)
     {
-        categories = B_Category.CategoryList();
+        PopupVisible = true;
+        CategorySelected = Category;
     }
 
-    async void OnRowUpdating(CategoryEntity dataItem, Dictionary<string, object> newValue)
+    /// <summary>
+    /// This method executes when click in the save button in pup-up
+    /// </summary>
+    /// <param name="Category"></param>
+    void SaveCategory(CategoryEntity CategorySelected)
     {
-        string values = JsonConvert.SerializeObject(newValue);
-        JsonConvert.PopulateObject(values, dataItem);
-        await Category.UpdateCategory(dataItem);
-    }
-
-
-    async void OnRowInserting(Dictionary<string, object> newValue)
-    {
-        CategoryEntity categoryEntitynew = new CategoryEntity();
-        string values = JsonConvert.SerializeObject(newValue);
-        JsonConvert.PopulateObject(values, categoryEntitynew);
-        await Category.CreateCategory(categoryEntitynew);
-    }
-
-
-    async void Delete(CategoryEntity item)
-    {
-        if (item != null)
+        if (CategorySelected.Id > 0)
         {
-            await Category.DeleteCategory(item);
+            Category.UpdateCategory(CategorySelected);
+        }
+        else
+        {
+            Category.CreateCategory(CategorySelected);
+        }
+        PopupVisible = false;
+    }
+
+    /// <summary>
+    /// This method executes when click in the delete button
+    /// </summary>
+    /// <param name="item"></param>
+    async void Delete(CategoryEntity CategorySelected)
+    {
+        if (CategorySelected != null)
+        {
+            await Category.DeleteCategory(CategorySelected);
         }
     }
-}
+
+    #endregion
+    }

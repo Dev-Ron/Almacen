@@ -1,0 +1,30 @@
+﻿@using Entities
+@using Bussiness
+@using DevExpress.Blazor
+@using Newtonsoft.Json
+@inject B_WhereHouse WhereHouseService
+<h3>WhereHouseo</h3>
+
+<EditForm Model="@WhereHouseToSave" Context="EntitiesContext">
+    <DataAnnotationsValidator />
+    <DxFormLayout Data="@WhereHouseToSave">
+        <DxFormLayoutItem Field="@nameof(WhereHouseEntity.Name)" Caption="Nombre del Almacen:" ColSpanMd="6">
+            <Template>
+                <DxTextBox @bind-Text="@WhereHouseToSave.Name" />
+            </Template>
+        </DxFormLayoutItem>
+    </DxFormLayout>
+</EditForm>
+
+@code {
+    [Parameter]
+    public WhereHouseEntity WhereHouseToSave { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (WhereHouseToSave == null)
+        {
+            WhereHouseToSave = new WhereHouseEntity();
+        }
+    }
+}

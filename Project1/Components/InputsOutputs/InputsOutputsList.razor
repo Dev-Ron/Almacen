@@ -1,0 +1,108 @@
+﻿@page  "/InputsOutputs/InputsOutputsList"
+
+@using Entities
+@using Bussiness
+@using DevExpress.Blazor
+@using Newtonsoft.Json
+
+@inject B_InputOutput InputOutputService
+
+<h3>Lista de InputOutputos</h3>
+
+<DxDataGrid T="InputOutputEntity" DataAsync="@InputOutputService.InputOutputList"
+            @ref="MyGrid"
+            KeyFieldName="Id">
+
+    <DxDataGridCommandColumn Width="10%" ClearFilterButtonVisible="false">
+        <HeaderCellTemplate>
+            <a class="oi oi-plus" @onclick="@(() => InputOutputFocus(new InputOutputEntity()))" href="javascript:void(0);"></a>
+        </HeaderCellTemplate>
+        <CellTemplate>
+            <a class="oi oi-pencil col-6" @onclick="@(() => InputOutputFocus(context as InputOutputEntity))" href="javascript:void(0);"></a>
+            <a class="oi oi-x col-6" @onclick="@(() => Delete(context as InputOutputEntity))" href="javascript:void(0);"></a>
+        </CellTemplate>
+    </DxDataGridCommandColumn>
+
+    <DxDataGridColumn Caption="Fecha"
+                      Field="@nameof(InputOutputEntity.InOutDate)" />
+
+    <DxDataGridCheckBoxColumn Caption="Cantidad"
+                              Field="@nameof(InputOutputEntity.IsInput)" />
+
+
+    <DxDataGridColumn Caption="Cantidad"
+                      Field="@nameof(InputOutputEntity.Quantity)" />
+
+
+    <DxDataGridColumn Field="StorageEntity.Name"
+                      Caption="Bodega" />
+
+
+    <DxDataGridColumn Field="CategoryEntity.Name"
+                      Caption="Categoria" />
+</DxDataGrid>
+
+
+<DxPopup HeaderText="Información del InputOutputo"
+         CssClass="myPopupCss"
+         @bind-Visible="@PopupVisible">
+    <Content>
+        <InputOutput InputOutputProp="@InputOutputSelected" />
+    </Content>
+    <FooterTemplate>
+        <button class="btn btn-primary" @onclick="@(() => SaveInputOutput(InputOutputSelected))">Guardar</button>
+    </FooterTemplate>
+</DxPopup>
+
+
+
+
+
+@code {
+    DxDataGrid<InputOutputEntity> MyGrid;
+    bool PopupVisible { get; set; }
+    InputOutputEntity InputOutputSelected = new InputOutputEntity();
+
+    #region CRUD
+
+    /// <summary>
+    /// This method start when is click the button Add or Update
+    /// </summary>
+    /// <param name="InputOutput"></param>
+    void InputOutputFocus(InputOutputEntity InputOutput)
+    {
+        PopupVisible = true;
+        InputOutputSelected = InputOutput;
+    }
+
+    /// <summary>
+    /// This method executes when click in the save button in pup-up
+    /// </summary>
+    /// <param name="InputOutput"></param>
+    void SaveInputOutput(InputOutputEntity InputOutput)
+    {
+        if (InputOutput.Id > 0)
+        {
+            InputOutputService.UpdateInputOutput(InputOutput);
+        }
+        else
+        {
+            InputOutputService.CreateOutput(InputOutput);
+        }
+        PopupVisible = false;
+    }
+
+    /// <summary>
+    /// This method executes when click in the delete button
+    /// </summary>
+    /// <param name="item"></param>
+    async void Delete(InputOutputEntity InputOutput)
+    {
+        if (InputOutput != null)
+        {
+            await InputOutputService.DeleteInputOutput(InputOutput);
+        }
+    }
+
+    #endregion
+}

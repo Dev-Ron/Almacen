@@ -35,6 +35,8 @@ namespace Project1
             services.AddSingleton<WeatherForecastService>();
             services.AddScoped<B_Category>();
             services.AddScoped<B_Product>();
+            services.AddScoped<B_InputOutput>();
+            services.AddScoped<B_WhereHouse>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,38 @@
+﻿@using Entities
+@using Bussiness
+@using DevExpress.Blazor
+@using Newtonsoft.Json
+@inject B_InputOutput InputOutputService
+@inject B_Category Category
+<h3>InputOutputo</h3>
+
+<EditForm Model="@InputOutputProp" Context="EntitiesContext">
+    <DataAnnotationsValidator />
+    <DxFormLayout Data="@InputOutputProp">
+        <DxFormLayoutItem Field="@nameof(InputOutputEntity.IsInput)" Caption="¿Es entrada o Salida?:" ColSpanMd="6">
+            <Template>
+                <DxCheckBox @bind-Text="@InputOutputProp.IsInput" T="bool" />
+            </Template>
+        </DxFormLayoutItem>
+        <DxFormLayoutItem Field="@nameof(InputOutputEntity.Quantity)" Caption="Cantidad:" ColSpanMd="6">
+            <Template>
+                <DxSpinEdit NullText="Sin información" T="int" @bind-Value="@InputOutputProp.Quantity" />
+            </Template>
+        </DxFormLayoutItem>
+    </DxFormLayout>
+</EditForm>
+
+@code {
+    [Parameter]
+    public InputOutputEntity InputOutputProp { get; set; }
+
+    List<CategoryEntity> categories = new List<CategoryEntity>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (InputOutputProp == null)
+        {
+            InputOutputProp = new InputOutputEntity();
+        }
+    }
+}

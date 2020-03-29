@@ -1,0 +1,95 @@
+﻿@page  "/WhereHouses/WhereHousesList"
+
+@using Entities
+@using Bussiness
+@using DevExpress.Blazor
+@using Newtonsoft.Json
+
+@inject B_WhereHouse WhereHouseService
+
+<h3>Lista de WhereHouseos</h3>
+
+<DxDataGrid T="WhereHouseEntity" DataAsync="@WhereHouseService.WhereHouseList"
+            @ref="MyGrid"
+            KeyFieldName="Id">
+
+    <DxDataGridCommandColumn Width="10%" ClearFilterButtonVisible="false">
+        <HeaderCellTemplate>
+            <a class="oi oi-plus" @onclick="@(() => WhereHouseFocus(new WhereHouseEntity()))" href="javascript:void(0);"></a>
+        </HeaderCellTemplate>
+        <CellTemplate>
+            <a class="oi oi-pencil col-6" @onclick="@(() => WhereHouseFocus(context as WhereHouseEntity))" href="javascript:void(0);"></a>
+            <a class="oi oi-x col-6" @onclick="@(() => Delete(context as WhereHouseEntity))" href="javascript:void(0);"></a>
+        </CellTemplate>
+    </DxDataGridCommandColumn>
+
+    <DxDataGridColumn Caption="Nombre" Field="@nameof(WhereHouseEntity.Name)" />
+
+    <DxDataGridColumn Caption="Dirección" Field="@nameof(WhereHouseEntity.Direccion)" />
+
+</DxDataGrid>
+
+
+<DxPopup HeaderText="Información del WhereHouseo"
+         CssClass="myPopupCss"
+         @bind-Visible="@PopupVisible">
+    <Content>
+        <WhereHouse WhereHouseToSave="@WhereHouseSelected" />
+    </Content>
+    <FooterTemplate>
+        <button class="btn btn-primary" @onclick="@(() => SaveWhereHouse(WhereHouseSelected))">Guardar</button>
+    </FooterTemplate>
+</DxPopup>
+
+
+
+
+
+@code {
+    DxDataGrid<WhereHouseEntity> MyGrid;
+    bool PopupVisible { get; set; }
+    WhereHouseEntity WhereHouseSelected = new WhereHouseEntity();
+
+    #region CRUD
+
+    /// <summary>
+    /// This method start when is click the button Add or Update
+    /// </summary>
+    /// <param name="WhereHouse"></param>
+    void WhereHouseFocus(WhereHouseEntity WhereHouse)
+    {
+        PopupVisible = true;
+        WhereHouseSelected = WhereHouse;
+    }
+
+    /// <summary>
+    /// This method executes when click in the save button in pup-up
+    /// </summary>
+    /// <param name="WhereHouse"></param>
+    void SaveWhereHouse(WhereHouseEntity WhereHouse)
+    {
+        if (WhereHouse.Id > 0)
+        {
+            WhereHouseService.UpdateWherehouse(WhereHouse);
+        }
+        else
+        {
+            WhereHouseService.CreateWherehouse(WhereHouse);
+        }
+        PopupVisible = false;
+    }
+
+    /// <summary>
+    /// This method executes when click in the delete button
+    /// </summary>
+    /// <param name="item"></param>
+    async void Delete(WhereHouseEntity WhereHouse)
+    {
+        if (WhereHouse != null)
+        {
+            await WhereHouseService.DeleteWhereHouse(WhereHouse);
+        }
+    }
+
+    #endregion
+}

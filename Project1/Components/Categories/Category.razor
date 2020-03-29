@@ -1,0 +1,30 @@
+﻿@using Entities
+@using Bussiness
+@using DevExpress.Blazor
+@using Newtonsoft.Json
+@inject B_Category CategoryService
+<h3>Categoryo</h3>
+
+<EditForm Model="@CategoryToSave" Context="EntitiesContext">
+    <DataAnnotationsValidator />
+    <DxFormLayout Data="@CategoryToSave">
+        <DxFormLayoutItem Field="@nameof(CategoryEntity.Name)" Caption="Nombre del Categoria" ColSpanMd="6">
+            <Template>
+                <DxTextBox @bind-Text="@CategoryToSave.Name" />
+            </Template>
+        </DxFormLayoutItem>
+    </DxFormLayout>
+</EditForm>
+
+@code {
+    [Parameter]
+    public CategoryEntity CategoryToSave { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (CategoryToSave == null)
+        {
+            CategoryToSave = new CategoryEntity();
+        }
+    }
+}
