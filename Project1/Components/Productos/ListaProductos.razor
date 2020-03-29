@@ -11,17 +11,14 @@
 
 <DxDataGrid T="ProductEntity" DataAsync="@Product.ProductList"
             @ref="MyGrid"
-            KeyFieldName="Id"
-            RowUpdating=@((row, newValues) => OnRowUpdating(row as ProductEntity, newValues))
-            RowInserting=@((row) => OnRowInserting(row))
-            RowRemoving="@((row) => Delete(row as ProductEntity))">
+            KeyFieldName="Id">
 
     <DxDataGridCommandColumn Width="10%" ClearFilterButtonVisible="false">
         <HeaderCellTemplate>
-            <a class="oi oi-plus" @onclick="@(() => PopupVisible = true)" href="javascript:void(0);"></a>
+            <a class="oi oi-plus" @onclick="@(() => ProductFocus(new ProductEntity()))" href="javascript:void(0);"></a>
         </HeaderCellTemplate>
         <CellTemplate>
-            <a class="oi oi-pencil col-6" @onclick="@(() => MyGrid.StartRowEdit(context))" href="javascript:void(0);"></a>
+            <a class="oi oi-pencil col-6" @onclick="@(() => ProductFocus(context as ProductEntity))" href="javascript:void(0);"></a>
             <a class="oi oi-x col-6" @onclick="@(() => Delete(context as ProductEntity))" href="javascript:void(0);"></a>
         </CellTemplate>
     </DxDataGridCommandColumn>
@@ -37,12 +34,13 @@
 
 
 <DxPopup HeaderText="Información del producto"
+         CssClass="myPopupCss"
          @bind-Visible="@PopupVisible">
     <Content>
-        <Producto />
+        <Producto product="@ProductSelected"/>
     </Content>
     <FooterTemplate>
-        <button class="btn btn-primary" @onclick="@(() => PopupVisible = false)">Guardar</button>
+        <button class="btn btn-primary" @onclick="@(() => SaveProduct(ProductSelected))">Guardar</button>
     </FooterTemplate>
 </DxPopup>
 
@@ -53,32 +51,67 @@
 @code {
     DxDataGrid<ProductEntity> MyGrid;
     bool PopupVisible { get; set; }
-   
+    ProductEntity ProductSelected = new ProductEntity();
 
-    async void OnRowUpdating(ProductEntity dataItem, Dictionary<string, object>
-    newValue)
+    #region CRUD 
+
+    /// <summary>
+    /// This method start when is click the button Add or Update
+    /// </summary>
+    /// <param name="product"></param>
+    void ProductFocus(ProductEntity product)
     {
-    string values = JsonConvert.SerializeObject(newValue);
-    JsonConvert.PopulateObject(values, dataItem);
-    await Product.UpdateProduct(dataItem);
+        PopupVisible = true;
+        ProductSelected = product;
+    }
+
+    /// <summary>
+    /// This method executes when click in the save button in pup-up
+    /// </summary>
+    /// <param name="product"></param>
+    void SaveProduct(ProductEntity product)
+    {
+        if (product.Id > 0)
+        {
+            Product.UpdateProduct(product);
+        }
+        else
+        {
+            Product.CreateProduct(product);
+        }
+        PopupVisible = false;
+    }
+
+    /// <summary>
+    /// This method executes when click in the delete button 
+    /// </summary>
+    /// <param name="item"></param>
+    async void Delete(ProductEntity product)
+    {
+        if (product != null)
+        {
+            await Product.DeleteProduct(product);
+        }
+    }
+
+    #endregion
+
+    #region DevExpress Functions (Waiting for solve, ticket sent)
+    async void OnRowUpdating(ProductEntity dataItem, Dictionary<string, object> newValue)
+    {
+        string values = JsonConvert.SerializeObject(newValue);
+        JsonConvert.PopulateObject(values, dataItem);
+        await Product.UpdateProduct(dataItem);
     }
 
 
     async void OnRowInserting(Dictionary<string, object>
         newValue)
-        {
+    {
         ProductEntity productEntitynew = new ProductEntity();
         string values = JsonConvert.SerializeObject(newValue);
         JsonConvert.PopulateObject(values, productEntitynew);
         await Product.CreateProduct(productEntitynew);
-        }
-
-
-        async void Delete(ProductEntity item)
-        {
-        if (item != null)
-        {
-        await Product.DeleteProduct(item);
-        }
-        }
-        }
+    }
+    #endregion
+}

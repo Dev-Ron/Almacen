@@ -16,7 +16,7 @@
         </DxFormLayoutItem>
         <DxFormLayoutItem Field="@nameof(ProductEntity.TotalQuantity)" Caption="Cantidad:" ColSpanMd="6">
             <Template>
-                <DxTextBox @bind-Text="@product.Name" />
+                <DxSpinEdit NullText="Sin información" T="int" @bind-Value="@product.TotalQuantity"/>
             </Template>
         </DxFormLayoutItem>
         <DxFormLayoutItem Field="@nameof(ProductEntity.CategoryEntity)" Caption="Cantidad:" ColSpanMd="6">
@@ -34,11 +34,17 @@
 </EditForm>
 
 @code {
-    ProductEntity product = new ProductEntity();
+    [Parameter]
+    public ProductEntity product { get; set; }
+
     List<CategoryEntity> categories = new List<CategoryEntity>();
 
     protected override async Task OnInitializedAsync()
     {
+        if(product == null)
+        {
+            product = new ProductEntity();
+        }
         categories = B_Category.CategoryList();
     }
 }

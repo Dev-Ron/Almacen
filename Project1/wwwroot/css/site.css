@@ -181,3 +181,7 @@ app {
         display: block;
     }
 }
+
+.myPopupCss {
+    max-width: 900px;
+}
