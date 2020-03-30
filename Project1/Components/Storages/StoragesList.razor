@@ -1,1 +1,102 @@
-﻿
+﻿@page  "/Storages/StoragesList"
+
+@using Entities
+@using Bussiness
+@using DevExpress.Blazor
+@using Newtonsoft.Json
+
+@inject B_Storage StorageService
+
+<h3>Lista de Storageos</h3>
+
+<DxDataGrid T="StorageEntity" DataAsync="@StorageService.StorageList"
+            @ref="MyGrid"
+            KeyFieldName="Id">
+
+    <DxDataGridCommandColumn Width="10%" ClearFilterButtonVisible="false">
+        <HeaderCellTemplate>
+            <a class="oi oi-plus" @onclick="@(() => StorageFocus(new StorageEntity()))" href="javascript:void(0);"></a>
+        </HeaderCellTemplate>
+        <CellTemplate>
+            <a class="oi oi-pencil col-6" @onclick="@(() => StorageFocus(context as StorageEntity))" href="javascript:void(0);"></a>
+            <a class="oi oi-x col-6" @onclick="@(() => Delete(context as StorageEntity))" href="javascript:void(0);"></a>
+        </CellTemplate>
+    </DxDataGridCommandColumn>
+
+    <DxDataGridColumn Caption="Ultima Modificacion"
+                      Field="@nameof(StorageEntity.LasUpdate)" />
+    <DxDataGridColumn Caption="Cantidad"
+                              Field="@nameof(StorageEntity.PartialQuantity)" />
+    <DxDataGridColumn Caption="Almacen"
+                              Field="WhereHouse.Name" />
+
+    <DxDataGridColumn Caption="Producto"
+                      Field="ProductEntity.Name" />
+</DxDataGrid>
+
+
+<DxPopup HeaderText="Información del Storageo"
+         CssClass="myPopupCss"
+         @bind-Visible="@PopupVisible">
+    <Content>
+        <Storage StorageToSave="@StorageSelected" />
+    </Content>
+    <FooterTemplate>
+        <button class="btn btn-primary" @onclick="@(() => SaveStorage(StorageSelected))">Guardar</button>
+    </FooterTemplate>
+</DxPopup>
+
+
+
+
+
+@code {
+    DxDataGrid<StorageEntity> MyGrid;
+    bool PopupVisible { get; set; }
+    StorageEntity StorageSelected = new StorageEntity();
+
+    #region CRUD
+
+    /// <summary>
+    /// This method start when is click the button Add or Update
+    /// </summary>
+    /// <param name="Storage"></param>
+    void StorageFocus(StorageEntity Storage)
+    {
+        PopupVisible = true;
+        StorageSelected = Storage;
+    }
+
+    /// <summary>
+    /// This method executes when click in the save button in pup-up
+    /// </summary>
+    /// <param name="Storage"></param>
+    void SaveStorage(StorageEntity Storage)
+    {
+        
+        if (Storage.Id > 0)
+        {
+            StorageService.UpdateStorage(Storage);
+        }
+        else
+        {
+            StorageService.CreateStorage(Storage);
+        }
+        PopupVisible = false;
+    }
+
+    /// <summary>
+    /// This method executes when click in the delete button
+    /// </summary>
+    /// <param name="item"></param>
+    async void Delete(StorageEntity Storage)
+    {
+        if (Storage != null)
+        {
+            await StorageService.DeleteStorage(Storage);
+        }
+    }
+
+    #endregion
+
+}

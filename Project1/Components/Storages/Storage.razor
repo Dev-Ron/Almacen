@@ -1,5 +1,74 @@
-﻿<h3>Storage</h3>
+﻿@using Entities
+@using Bussiness
+@using DevExpress.Blazor
+@using DevExpress.Blazor.DateEdit
+@using Newtonsoft.Json
+@inject B_Storage StorageService
+@inject B_Product ProductsService
+@inject B_WhereHouse WhereHouseService
+
+<h3>Producto</h3>
+
+<EditForm Model="@StorageToSave" Context="EntitiesContext">
+    <DataAnnotationsValidator />
+    <DxFormLayout Data="@StorageToSave">
+        <DxFormLayoutItem  Field="@nameof(StorageEntity.LasUpdate)" Caption="Fecha" ColSpanMd="6">
+            <Template>
+                <DxDateEdit
+                            T="DateTime"
+                            @bind-Date="@StorageToSave.LasUpdate"
+                            ></DxDateEdit>
+            </Template>
+        </DxFormLayoutItem>
+        <DxFormLayoutItem Field="@nameof(StorageEntity.PartialQuantity)" Caption="Cantidad del producto:" ColSpanMd="6">
+            <Template>
+                <DxSpinEdit @bind-Value="@StorageToSave.PartialQuantity" />
+            </Template>
+        </DxFormLayoutItem>
+        <DxFormLayoutItem Field="@nameof(StorageEntity.Product)" Caption="Producto:" ColSpanMd="6">
+            <Template>
+                <DxComboBox NullText="Seleccione una producto:"
+                            T="ProductEntity"
+                            ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"
+                            @bind-SelectedItem="@StorageToSave.Product"
+                            Data="@products"
+                            TextFieldName="@nameof(ProductEntity.CategoryEntity.Name)">
+                </DxComboBox>
+            </Template>
+        </DxFormLayoutItem>
+        <DxFormLayoutItem Field="@nameof(StorageEntity.WhereHouse)" Caption="Almacén:" ColSpanMd="6">
+            <Template>
+                <DxComboBox NullText="Seleccione una almacén:"
+                            T="WhereHouseEntity"
+                            ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"
+                            @bind-SelectedItem="@StorageToSave.WhereHouse"
+                            Data="@wherehouses"
+                            TextFieldName="@nameof(ProductEntity.CategoryEntity.Name)">
+                </DxComboBox>
+            </Template>
+        </DxFormLayoutItem>
+
+    </DxFormLayout>
+</EditForm>
 
 @code {
+    [Parameter]
+    public StorageEntity StorageToSave { get; set; }
 
+
+    public List<ProductEntity> products = new List<ProductEntity>();
+
+
+    public List<WhereHouseEntity> wherehouses = new List<WhereHouseEntity>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (StorageToSave == null)
+        {
+            StorageToSave = new StorageEntity();
+            StorageToSave.LasUpdate = new DateTime();
+        }
+        wherehouses = WhereHouseService.WhereHouseList();
+        products = ProductsService.ProductList();
+    }
 }

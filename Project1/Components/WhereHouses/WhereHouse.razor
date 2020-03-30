@@ -3,7 +3,6 @@
 @using DevExpress.Blazor
 @using Newtonsoft.Json
 @inject B_WhereHouse WhereHouseService
-<h3>WhereHouseo</h3>
 
 <EditForm Model="@WhereHouseToSave" Context="EntitiesContext">
     <DataAnnotationsValidator />
@@ -11,6 +10,13 @@
         <DxFormLayoutItem Field="@nameof(WhereHouseEntity.Name)" Caption="Nombre del Almacen:" ColSpanMd="6">
             <Template>
                 <DxTextBox @bind-Text="@WhereHouseToSave.Name" />
+            </Template>
+        </DxFormLayoutItem>
+    </DxFormLayout>
+    <DxFormLayout Data="@WhereHouseToSave">
+        <DxFormLayoutItem Field="@nameof(WhereHouseEntity.Direccion)" Caption="Direccion del Almacen:" ColSpanMd="6">
+            <Template>
+                <DxTextBox @bind-Text="@WhereHouseToSave.Direccion" />
             </Template>
         </DxFormLayoutItem>
     </DxFormLayout>

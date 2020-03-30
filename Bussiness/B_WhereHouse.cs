@@ -11,7 +11,7 @@ namespace Bussiness
     public class B_WhereHouse
     {
         
-        public static List<WhereHouseEntity> WherehouseList()
+        public List<WhereHouseEntity> WhereHouseList()
         {
             using (var db = new EntitiesContext())
             {
@@ -46,13 +46,12 @@ namespace Bussiness
             }
         }
 
-        public Task DeleteWhereHouse(WhereHouseEntity oCategory)
+        public Task DeleteWhereHouse(WhereHouseEntity owhereHouse)
         {
             using (var db = new EntitiesContext())
             {
-                db.WhereHouses.Remove(oCategory);
+                db.WhereHouses.Remove(owhereHouse);
                 return Task.FromResult(db.SaveChanges());
-
             }
 
         }

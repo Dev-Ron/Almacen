@@ -7,7 +7,7 @@
 
 @inject B_WhereHouse WhereHouseService
 
-<h3>Lista de WhereHouseos</h3>
+<h3>Lista de Almacenes</h3>
 
 <DxDataGrid T="WhereHouseEntity" DataAsync="@WhereHouseService.WhereHouseList"
             @ref="MyGrid"
@@ -30,7 +30,7 @@
 </DxDataGrid>
 
 
-<DxPopup HeaderText="Información del WhereHouseo"
+<DxPopup HeaderText="Información del Almacén"
          CssClass="myPopupCss"
          @bind-Visible="@PopupVisible">
     <Content>

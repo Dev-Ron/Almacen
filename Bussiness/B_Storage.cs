@@ -4,32 +4,37 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Bussiness
 {
     public class B_Storage
     {
-        private EntitiesContext _Context;
-
         public static List<StorageEntity> StorageList()
         {
             using (var db = new EntitiesContext())
             {
-                return db.Storages
-                    .Include(s => s.Product)
-                    .Include(s => s.WhereHouse)
-                    .ToList();
+                return db.Storages.ToList();
             }
         }
 
-        public static StorageEntity CreateStorage(StorageEntity oStorage)
+        public async Task<IEnumerable<StorageEntity>> StorageList(CancellationToken ct = default)
+        {
+            using (var db = new EntitiesContext())
+            {
+                return await Task.FromResult(db.Storages.Include(s => s.WhereHouse).Include(s => s.Product).ToList());
+            }
+        }
+
+
+        public Task CreateStorage(StorageEntity oStorage)
         {
             using (var db = new EntitiesContext())
             {
                 db.Storages.Add(oStorage);
-                db.SaveChanges();
 
-                return GetStorageById(oStorage.Id);
+                return Task.FromResult(db.SaveChanges());
             }
         }
 
@@ -71,14 +76,25 @@ namespace Bussiness
             }
         }
 
-        public static void UpdateStorage(StorageEntity oStorage)
+        public Task UpdateStorage(StorageEntity oStorage)
         {
             oStorage.LasUpdate = DateTime.Now;
 
             using (var db = new EntitiesContext())
             {
                 db.Storages.Update(oStorage);
-                db.SaveChanges();
+                return Task.FromResult(db.SaveChanges());
+            }
+        }
+
+        public Task DeleteStorage(StorageEntity oStorage)
+        {
+            oStorage.LasUpdate = DateTime.Now;
+
+            using (var db = new EntitiesContext())
+            {
+                db.Storages.Remove(oStorage);
+                return Task.FromResult(db.SaveChanges());
             }
         }
     }

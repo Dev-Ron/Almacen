@@ -19,6 +19,14 @@ namespace Bussiness
             }
         }
 
+        public List<ProductEntity> ProductList()
+        {
+            using (var db = new EntitiesContext())
+            {
+                return (db.Products.Include(s => s.CategoryEntity).ToList());
+            }
+        }
+
         public Task CreateProduct(ProductEntity oProduct)
         {
             using (var db = new EntitiesContext())

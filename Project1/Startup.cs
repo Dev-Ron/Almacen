@@ -37,6 +37,7 @@ namespace Project1
             services.AddScoped<B_Product>();
             services.AddScoped<B_InputOutput>();
             services.AddScoped<B_WhereHouse>();
+            services.AddScoped<B_Storage>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
