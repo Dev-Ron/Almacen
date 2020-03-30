@@ -26,7 +26,7 @@
     <DxDataGridColumn Caption="Fecha"
                       Field="@nameof(InputOutputEntity.InOutDate)" />
 
-    <DxDataGridCheckBoxColumn Caption="Cantidad"
+    <DxDataGridCheckBoxColumn Caption="Operación"
                               Field="@nameof(InputOutputEntity.IsInput)" />
 
 
@@ -34,12 +34,11 @@
                       Field="@nameof(InputOutputEntity.Quantity)" />
 
 
-    <DxDataGridColumn Field="StorageEntity.Name"
-                      Caption="Bodega" />
+    <DxDataGridColumn Field="Storage.Product.Name"
+                      Caption="Produto" />
 
-
-    <DxDataGridColumn Field="CategoryEntity.Name"
-                      Caption="Categoria" />
+    <DxDataGridColumn Field="Storage.WhereHouse.Name"
+                      Caption="Almacén" />
 </DxDataGrid>
 
 
@@ -61,7 +60,14 @@
 @code {
     DxDataGrid<InputOutputEntity> MyGrid;
     bool PopupVisible { get; set; }
-    InputOutputEntity InputOutputSelected = new InputOutputEntity();
+    InputOutputEntity InputOutputSelected = new InputOutputEntity() {
+        InOutDate = DateTime.Now,
+        Storage = new StorageEntity()
+        {
+            Product = new ProductEntity(),
+            WhereHouse = new WhereHouseEntity()
+        }
+    };
 
     #region CRUD
 

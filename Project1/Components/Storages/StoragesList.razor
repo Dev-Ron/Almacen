@@ -31,7 +31,7 @@
                               Field="WhereHouse.Name" />
 
     <DxDataGridColumn Caption="Producto"
-                      Field="ProductEntity.Name" />
+                      Field="Product.Name" />
 </DxDataGrid>
 
 
@@ -53,7 +53,7 @@
 @code {
     DxDataGrid<StorageEntity> MyGrid;
     bool PopupVisible { get; set; }
-    StorageEntity StorageSelected = new StorageEntity();
+    StorageEntity StorageSelected = new StorageEntity() { LasUpdate = DateTime.Today };
 
     #region CRUD
 
@@ -73,7 +73,7 @@
     /// <param name="Storage"></param>
     void SaveStorage(StorageEntity Storage)
     {
-        
+
         if (Storage.Id > 0)
         {
             StorageService.UpdateStorage(Storage);

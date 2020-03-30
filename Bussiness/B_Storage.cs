@@ -32,8 +32,9 @@ namespace Bussiness
         {
             using (var db = new EntitiesContext())
             {
+                oStorage.Product = oStorage.Product == null ? null : db.Products.Find(oStorage.Product.Id);
+                oStorage.WhereHouse = oStorage.WhereHouse == null ? null : db.WhereHouses.Find(oStorage.WhereHouse.Id);
                 db.Storages.Add(oStorage);
-
                 return Task.FromResult(db.SaveChanges());
             }
         }

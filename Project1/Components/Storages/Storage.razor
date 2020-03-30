@@ -63,6 +63,7 @@
 
     protected override async Task OnInitializedAsync()
     {
+        StorageToSave.LasUpdate = DateTime.Now;
         if (StorageToSave == null)
         {
             StorageToSave = new StorageEntity();

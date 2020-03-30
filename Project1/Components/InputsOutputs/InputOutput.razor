@@ -3,8 +3,8 @@
 @using DevExpress.Blazor
 @using Newtonsoft.Json
 @inject B_InputOutput InputOutputService
-@inject B_Category Category
-
+@inject B_Product ProductService
+@inject B_WhereHouse WhereHouseService
 <h3>Ventas/Ingresos</h3>
 
 <EditForm Model="@InputOutputProp" Context="EntitiesContext">
@@ -12,7 +12,7 @@
     <DxFormLayout Data="@InputOutputProp">
         <DxFormLayoutItem Field="@nameof(InputOutputEntity.IsInput)" Caption="¿Es entrada o Salida?:" ColSpanMd="6">
             <Template>
-                <DxCheckBox @bind-Text="@InputOutputProp.IsInput" T="bool" />
+                <DxCheckBox @bind-Checked="@InputOutputProp.IsInput" T="bool" />
             </Template>
         </DxFormLayoutItem>
         <DxFormLayoutItem Field="@nameof(InputOutputEntity.Quantity)" Caption="Cantidad:" ColSpanMd="6">
@@ -20,20 +20,51 @@
                 <DxSpinEdit NullText="Sin información" T="int" @bind-Value="@InputOutputProp.Quantity" />
             </Template>
         </DxFormLayoutItem>
+        <DxFormLayoutItem Field="@nameof(InputOutputEntity.InOutDate)" Caption="Fecha:" ColSpanMd="6">
+            <Template>
+                <DxDateEdit T="DateTime" @bind-Date="@InputOutputProp.InOutDate" />
+            </Template>
+        </DxFormLayoutItem>
+        @*<DxFormLayoutItem Field="@nameof(InputOutputEntity.Storage)" Caption="Fecha:" ColSpanMd="6">
+            <Template>
+               
+            </Template>
+        </DxFormLayoutItem>*@
     </DxFormLayout>
+     <DxComboBox NullText="Seleccione un Producto"
+                            T="ProductEntity"
+                            ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"
+                            @bind-SelectedItem="@InputOutputProp.Storage.Product"
+                            Data="@products"
+                            TextFieldName="@nameof(ProductEntity.Name)">
+                </DxComboBox>
+                <DxComboBox NullText="Seleccione un Almacén"
+                            T="WhereHouseEntity"
+                            ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"
+                            @bind-SelectedItem="@InputOutputProp.Storage.WhereHouse"
+                            Data="@whereHouses"
+                            TextFieldName="@nameof(WhereHouseEntity.Name)">
+                </DxComboBox>
 </EditForm>
 
 @code {
     [Parameter]
     public InputOutputEntity InputOutputProp { get; set; }
+    public ProductEntity Product { get; set; }
+    public wher
 
-    List<CategoryEntity> categories = new List<CategoryEntity>();
+    List<ProductEntity> products = new List<ProductEntity>();
+    List<WhereHouseEntity> whereHouses = new List<WhereHouseEntity>();
+
 
     protected override async Task OnInitializedAsync()
     {
+        InputOutputProp.InOutDate = DateTime.Now;
         if (InputOutputProp == null)
         {
             InputOutputProp = new InputOutputEntity();
         }
+        products = ProductService.ProductList();
+        whereHouses = WhereHouseService.WhereHouseList();
     }
 }
