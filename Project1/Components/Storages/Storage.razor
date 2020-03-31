@@ -7,17 +7,15 @@
 @inject B_Product ProductsService
 @inject B_WhereHouse WhereHouseService
 
-<h3>Producto</h3>
+<h3>Información de disponibilidad</h3>
 
 <EditForm Model="@StorageToSave" Context="EntitiesContext">
     <DataAnnotationsValidator />
     <DxFormLayout Data="@StorageToSave">
-        <DxFormLayoutItem  Field="@nameof(StorageEntity.LasUpdate)" Caption="Fecha" ColSpanMd="6">
+        <DxFormLayoutItem Field="@nameof(StorageEntity.LasUpdate)" Caption="Fecha" ColSpanMd="6">
             <Template>
-                <DxDateEdit
-                            T="DateTime"
-                            @bind-Date="@StorageToSave.LasUpdate"
-                            ></DxDateEdit>
+                <DxDateEdit T="DateTime"
+                            @bind-Date="@StorageToSave.LasUpdate"></DxDateEdit>
             </Template>
         </DxFormLayoutItem>
         <DxFormLayoutItem Field="@nameof(StorageEntity.PartialQuantity)" Caption="Cantidad del producto:" ColSpanMd="6">
@@ -34,6 +32,7 @@
                             Data="@products"
                             TextFieldName="@nameof(ProductEntity.CategoryEntity.Name)">
                 </DxComboBox>
+                <ValidationMessage For="@(() => StorageToSave.Product)" />
             </Template>
         </DxFormLayoutItem>
         <DxFormLayoutItem Field="@nameof(StorageEntity.WhereHouse)" Caption="Almacén:" ColSpanMd="6">
@@ -45,9 +44,14 @@
                             Data="@wherehouses"
                             TextFieldName="@nameof(ProductEntity.CategoryEntity.Name)">
                 </DxComboBox>
+                <ValidationMessage For="@(() => StorageToSave.WhereHouse)" />
             </Template>
         </DxFormLayoutItem>
-
+        <DxFormLayoutItem ColSpanMd="12">
+            <Template>
+                <ValidationSummary />
+            </Template>
+        </DxFormLayoutItem>
     </DxFormLayout>
 </EditForm>
 

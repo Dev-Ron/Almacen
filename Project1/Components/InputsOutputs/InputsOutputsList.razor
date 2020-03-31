@@ -13,14 +13,10 @@
             @ref="MyGrid"
             KeyFieldName="Id">
 
-    <DxDataGridCommandColumn Width="10%" ClearFilterButtonVisible="false">
+    <DxDataGridCommandColumn Width="10%" ClearFilterButtonVisible="false" DeleteButtonVisible="false" EditButtonVisible="false">
         <HeaderCellTemplate>
             <a class="oi oi-plus" @onclick="@(() => InputOutputFocus(new InputOutputEntity()))" href="javascript:void(0);"></a>
         </HeaderCellTemplate>
-        <CellTemplate>
-            <a class="oi oi-pencil col-6" @onclick="@(() => InputOutputFocus(context as InputOutputEntity))" href="javascript:void(0);"></a>
-            <a class="oi oi-x col-6" @onclick="@(() => Delete(context as InputOutputEntity))" href="javascript:void(0);"></a>
-        </CellTemplate>
     </DxDataGridCommandColumn>
 
     <DxDataGridColumn Caption="Fecha"
@@ -42,7 +38,7 @@
 </DxDataGrid>
 
 
-<DxPopup HeaderText="Información del InputOutputo"
+<DxPopup HeaderText="Información de la operación"
          CssClass="myPopupCss"
          @bind-Visible="@PopupVisible">
     <Content>

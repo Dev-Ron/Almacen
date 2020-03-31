@@ -12,11 +12,14 @@
                 <DxTextBox @bind-Text="@WhereHouseToSave.Name" />
             </Template>
         </DxFormLayoutItem>
-    </DxFormLayout>
-    <DxFormLayout Data="@WhereHouseToSave">
         <DxFormLayoutItem Field="@nameof(WhereHouseEntity.Direccion)" Caption="Direccion del Almacen:" ColSpanMd="6">
             <Template>
                 <DxTextBox @bind-Text="@WhereHouseToSave.Direccion" />
+            </Template>
+        </DxFormLayoutItem>
+        <DxFormLayoutItem ColSpanMd="12">
+            <Template>
+                <ValidationSummary />
             </Template>
         </DxFormLayoutItem>
     </DxFormLayout>

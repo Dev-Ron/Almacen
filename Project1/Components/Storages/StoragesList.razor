@@ -7,13 +7,14 @@
 
 @inject B_Storage StorageService
 
-<h3>Lista de Storageos</h3>
+<h3>Disponibilidades</h3>
 
 <DxDataGrid T="StorageEntity" DataAsync="@StorageService.StorageList"
             @ref="MyGrid"
-            KeyFieldName="Id">
-
-    <DxDataGridCommandColumn Width="10%" ClearFilterButtonVisible="false">
+            KeyFieldName="Id"
+            >
+     
+    @*<DxDataGridCommandColumn Width="10%" ClearFilterButtonVisible="false">
         <HeaderCellTemplate>
             <a class="oi oi-plus" @onclick="@(() => StorageFocus(new StorageEntity()))" href="javascript:void(0);"></a>
         </HeaderCellTemplate>
@@ -21,7 +22,7 @@
             <a class="oi oi-pencil col-6" @onclick="@(() => StorageFocus(context as StorageEntity))" href="javascript:void(0);"></a>
             <a class="oi oi-x col-6" @onclick="@(() => Delete(context as StorageEntity))" href="javascript:void(0);"></a>
         </CellTemplate>
-    </DxDataGridCommandColumn>
+    </DxDataGridCommandColumn>*@
 
     <DxDataGridColumn Caption="Ultima Modificacion"
                       Field="@nameof(StorageEntity.LasUpdate)" />
@@ -73,7 +74,6 @@
     /// <param name="Storage"></param>
     void SaveStorage(StorageEntity Storage)
     {
-
         if (Storage.Id > 0)
         {
             StorageService.UpdateStorage(Storage);

@@ -11,6 +11,12 @@
         <DxFormLayoutItem Field="@nameof(CategoryEntity.Name)" Caption="Nombre del Categoria" ColSpanMd="6">
             <Template>
                 <DxTextBox @bind-Text="@CategoryToSave.Name" />
+                <ValidationMessage For="@(() => CategoryToSave.Name)" />
+            </Template>
+        </DxFormLayoutItem>
+        <DxFormLayoutItem ColSpanMd="12">
+            <Template>
+                <ValidationSummary />
             </Template>
         </DxFormLayoutItem>
     </DxFormLayout>

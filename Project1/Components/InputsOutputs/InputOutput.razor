@@ -8,9 +8,31 @@
 <h3>Ventas/Ingresos</h3>
 
 <EditForm Model="@InputOutputProp" Context="EntitiesContext">
-    <DataAnnotationsValidator />
+    <DataAnnotationsValidator/>
     <DxFormLayout Data="@InputOutputProp">
-        <DxFormLayoutItem Field="@nameof(InputOutputEntity.IsInput)" Caption="¿Es entrada o Salida?:" ColSpanMd="6">
+        <DxFormLayoutItem Field="@nameof(InputOutputEntity.WhereHouse)" Caption="Seleccione el almacén:" ColSpanMd="6">
+            <Template>
+                <DxComboBox NullText="Seleccione el almacén"
+                            T="WhereHouseEntity"
+                            ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"
+                            @bind-SelectedItem="@InputOutputProp.WhereHouse"
+                            Data="@whereHouses"
+                            TextFieldName="@nameof(WhereHouseEntity.Name)">
+                </DxComboBox>
+            </Template>
+        </DxFormLayoutItem>
+        <DxFormLayoutItem Field="@nameof(InputOutputEntity.Product)" Caption="Seleccione el producto:" ColSpanMd="6">
+            <Template>
+                <DxComboBox NullText="Seleccione un producto"
+                            T="ProductEntity"
+                            ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"
+                            @bind-SelectedItem="@InputOutputProp.Product"
+                            Data="@products"
+                            TextFieldName="@nameof(ProductEntity.Name)">
+                </DxComboBox>
+            </Template>
+        </DxFormLayoutItem>
+        <DxFormLayoutItem Field="@nameof(InputOutputEntity.IsInput)" Caption="¿Es entrada?:" ColSpanMd="6">
             <Template>
                 <DxCheckBox @bind-Checked="@InputOutputProp.IsInput" T="bool" />
             </Template>
@@ -18,40 +40,25 @@
         <DxFormLayoutItem Field="@nameof(InputOutputEntity.Quantity)" Caption="Cantidad:" ColSpanMd="6">
             <Template>
                 <DxSpinEdit NullText="Sin información" T="int" @bind-Value="@InputOutputProp.Quantity" />
+                <ValidationMessage For="@(() => InputOutputProp.WhereHouse)" />
             </Template>
         </DxFormLayoutItem>
         <DxFormLayoutItem Field="@nameof(InputOutputEntity.InOutDate)" Caption="Fecha:" ColSpanMd="6">
             <Template>
-                <DxDateEdit T="DateTime" @bind-Date="@InputOutputProp.InOutDate" />
+                <DxDateEdit ReadOnly="true" T="DateTime" @bind-Date="@InputOutputProp.InOutDate" />
             </Template>
         </DxFormLayoutItem>
-        @*<DxFormLayoutItem Field="@nameof(InputOutputEntity.Storage)" Caption="Fecha:" ColSpanMd="6">
+        <DxFormLayoutItem ColSpanMd="12">
             <Template>
-               
+                <ValidationSummary />
             </Template>
-        </DxFormLayoutItem>*@
+        </DxFormLayoutItem>
     </DxFormLayout>
-     <DxComboBox NullText="Seleccione un Producto"
-                            T="ProductEntity"
-                            ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"
-                            @bind-SelectedItem="@InputOutputProp.Storage.Product"
-                            Data="@products"
-                            TextFieldName="@nameof(ProductEntity.Name)">
-                </DxComboBox>
-                <DxComboBox NullText="Seleccione un Almacén"
-                            T="WhereHouseEntity"
-                            ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"
-                            @bind-SelectedItem="@InputOutputProp.Storage.WhereHouse"
-                            Data="@whereHouses"
-                            TextFieldName="@nameof(WhereHouseEntity.Name)">
-                </DxComboBox>
 </EditForm>
 
 @code {
     [Parameter]
     public InputOutputEntity InputOutputProp { get; set; }
-    public ProductEntity Product { get; set; }
-    public wher
 
     List<ProductEntity> products = new List<ProductEntity>();
     List<WhereHouseEntity> whereHouses = new List<WhereHouseEntity>();

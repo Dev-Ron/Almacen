@@ -12,11 +12,7 @@
         <DxFormLayoutItem Field="@nameof(ProductEntity.Name)" Caption="Nombre del producto:" ColSpanMd="6">
             <Template>
                 <DxTextBox @bind-Text="@product.Name" />
-            </Template>
-        </DxFormLayoutItem>
-        <DxFormLayoutItem Field="@nameof(ProductEntity.TotalQuantity)" Caption="Cantidad:" ColSpanMd="6">
-            <Template>
-                <DxSpinEdit NullText="Sin información" T="int" @bind-Value="@product.TotalQuantity"/>
+                <ValidationMessage For="@(() => product.Name)" />
             </Template>
         </DxFormLayoutItem>
         <DxFormLayoutItem Field="@nameof(ProductEntity.CategoryEntity)" Caption="Cantidad:" ColSpanMd="6">
@@ -28,6 +24,11 @@
                             Data="@categories"
                             TextFieldName="@nameof(ProductEntity.CategoryEntity.Name)">
                 </DxComboBox>
+            </Template>
+        </DxFormLayoutItem>
+        <DxFormLayoutItem ColSpanMd="12">
+            <Template>
+                <ValidationSummary />
             </Template>
         </DxFormLayoutItem>
     </DxFormLayout>

@@ -7,12 +7,12 @@ namespace Entities
 {
     public class WhereHouseEntity : BaseEntity 
     {
-        [Required]
-        [StringLength(50)]
+        [Required(ErrorMessage = "Requerido")]
+        [StringLength(100, ErrorMessage = "Es una cadena muy larga")]
         public string Name { get; set; }
 
-        [Required]
-        [StringLength(100)]
+        [Required(ErrorMessage = "Requerido")]
+        [StringLength(100, ErrorMessage = "Es una cadena muy larga")]
         public string Direccion { get; set; }
 
         public ICollection<StorageEntity> Storages { get; set; }

@@ -8,10 +8,8 @@ namespace Entities
     public class ProductEntity: BaseEntity 
     {
         [Required]
-        [StringLength(100)]
+        [StringLength(100, ErrorMessage = "Es una cadena muy larga")]
         public string Name { get; set; }
-
-        public int TotalQuantity { get; set; }
         
         public CategoryEntity CategoryEntity { get; set; }
 
