@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Project1.ThemeSwitcher;
 using Bussiness;
 using Entities;
 using Microsoft.AspNetCore.Builder;
@@ -32,6 +33,7 @@ namespace Project1
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddScoped<LinkService>();
             services.AddSingleton<WeatherForecastService>();
             services.AddScoped<B_Category>();
             services.AddScoped<B_Product>();
